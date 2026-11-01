@@ -89,7 +89,7 @@ export function PageActions({ mdUrl, pageUrl, prev, next }: { mdUrl: string; pag
   return (
     <div className="page-actions">
       <div className="page-actions-split">
-        <Button type="button" variant="outline" size="sm" onClick={copyPage}>
+        <Button type="button" variant="outline" size="default" onClick={copyPage}>
           {copied === "page" ? <CheckIcon data-icon="inline-start" /> : <CopyIcon data-icon="inline-start" />}
           {copied === "page" ? "Copied" : "Copy Page"}
         </Button>

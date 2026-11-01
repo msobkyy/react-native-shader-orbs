@@ -1786,3 +1786,41 @@ body {
     text-decoration: none;
   }
 }
+
+/* Unlayered on purpose: the Button utilities (rounded-lg, border) are in a layer and would otherwise win. */
+.page-actions-split > button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.page-actions-split > button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
+.page-actions-split > button:hover {
+  position: relative;
+  z-index: 1;
+}
+
+/* Page transition: content eases in on every docs navigation. */
+@keyframes doc-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.doc-transition {
+  display: contents;
+}
+.doc-transition > .docs-content {
+  animation: doc-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .doc-transition > .docs-content {
+    animation: none;
+  }
+}
