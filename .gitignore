@@ -1,0 +1,12 @@
+node_modules
+dist
+.expo
+.upstream
+.tmp
+.next
+out
+.vercel
+*.tsbuildinfo
+.env*
+*.tgz
+.git-expo-init-backup

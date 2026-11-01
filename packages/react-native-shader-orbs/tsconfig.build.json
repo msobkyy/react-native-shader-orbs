@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "src",
+    "outDir": "lib/module",
+    "declaration": true,
+    "declarationDir": "lib/typescript",
+    "sourceMap": false
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "codegen",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "generate": "echo TODO: resolve upstream shadercn gpu.ts to WGSL"
+  },
+  "dependencies": {
+    "typegpu": "^0.12.9"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "unplugin-typegpu": "^0.12.7"
+  }
+}

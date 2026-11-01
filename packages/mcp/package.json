@@ -1,0 +1,45 @@
+{
+  "name": "react-native-shader-orbs-mcp",
+  "version": "0.1.0-alpha.0",
+  "description": "MCP server for react-native-shader-orbs: look up orbs, check parameters against their real ranges, and write correct <ShaderOrb /> code.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "react-native-shader-orbs-mcp": "cli.mjs"
+  },
+  "files": [
+    "cli.mjs",
+    "server.mjs",
+    "init.mjs",
+    "data",
+    "README.md"
+  ],
+  "scripts": {
+    "sync": "node sync.mjs",
+    "start": "node server.mjs",
+    "smoke": "node smoke.mjs",
+    "prepack": "node sync.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "react-native",
+    "expo",
+    "shader",
+    "webgpu",
+    "ai-agent",
+    "claude",
+    "cursor"
+  ],
+  "author": "msobkyy (https://x.com/msobkyy)",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

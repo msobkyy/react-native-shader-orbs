@@ -1,0 +1,83 @@
+{
+  "name": "react-native-shader-orbs",
+  "version": "0.1.0-alpha.1",
+  "description": "GPU shader orbs for React Native and Expo: 33 WebGPU shaders as drop-in components with live parameters, audio-reactive volumes, touch interaction and adaptive quality.",
+  "keywords": [
+    "react-native",
+    "expo",
+    "react-native-webgpu",
+    "webgpu",
+    "wgsl",
+    "shader",
+    "shaders",
+    "gpu",
+    "orb",
+    "ai-orb",
+    "voice-assistant",
+    "audio-visualizer",
+    "animation",
+    "generative-art",
+    "ui-component",
+    "typescript",
+    "android"
+  ],
+  "author": "msobkyy (https://x.com/msobkyy)",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./lib/module/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/typescript/index.d.ts",
+  "react-native": "./src/index.ts",
+  "source": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/typescript/index.d.ts",
+      "react-native": "./src/index.ts",
+      "import": "./lib/module/index.js",
+      "default": "./lib/module/index.js"
+    },
+    "./orbs/*": {
+      "types": "./lib/typescript/orbs/*.d.ts",
+      "react-native": "./src/orbs/*.ts",
+      "import": "./lib/module/orbs/*.js",
+      "default": "./lib/module/orbs/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "agent",
+    "LICENSE",
+    "NOTICE.md",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('lib',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "check": "node scripts/check-package.mjs",
+    "verify": "npm run typecheck && npm run test && npm run readme -- --check && npm run agent -- --check && npm run build && npm run check",
+    "test": "vitest run",
+    "prepack": "npm run build",
+    "readme": "node scripts/readme-orbs.mjs",
+    "agent": "node scripts/build-agent.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-native": ">=0.81.0",
+    "react-native-webgpu": ">=0.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@webgpu/types": "^0.1.74",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-webgpu": "^0.19.2",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.12",
+    "wgsl_reflect": "^1.6.0"
+  }
+}

@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  package:
+    name: Package (typecheck, test, build, pack)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react-native-shader-orbs
+    steps:
+      - uses: actions/checkout@v4
+
+      # The version comes from "packageManager" in the root package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # TODO: commit an up-to-date pnpm-lock.yaml (run `pnpm install` locally), then switch this to --frozen-lockfile.
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+        working-directory: .
+
+      - name: Typecheck
+        run: pnpm run typecheck
+
+      - name: Test
+        run: pnpm run test
+
+      # The orb table in the README is generated from the source files; fail if it has drifted.
+      - name: README is current
+        run: pnpm run readme -- --check
+
+      # agent/catalog.json, the skill and the AGENTS snippet are generated from the orb sources.
+      - name: Agent files are current
+        run: pnpm run agent -- --check
+
+      # Builds lib/ and checks it: manifest targets exist, imports resolve, and every shader (source AND compiled)
+      # still carries XorDev's license notice.
+      - name: Build and check
+        run: pnpm run build && pnpm run check
+
+      - name: Pack
+        run: |
+          npm pack --dry-run 2>&1 | tail -8
+          npm pack --pack-destination "$RUNNER_TEMP"
+
+      - name: Check the packed tarball, as a consumer would install it
+        run: |
+          mkdir -p "$RUNNER_TEMP/consumer/node_modules"
+          tar -xzf "$RUNNER_TEMP"/react-native-shader-orbs-*.tgz -C "$RUNNER_TEMP/consumer/node_modules"
+          mv "$RUNNER_TEMP/consumer/node_modules/package" "$RUNNER_TEMP/consumer/node_modules/react-native-shader-orbs"
+          node scripts/check-package.mjs "$RUNNER_TEMP/consumer/node_modules/react-native-shader-orbs"
+
+  docs-site:
+    name: Docs site (build)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: npm install --no-audit --no-fund
+      - name: Typecheck
+        run: npx tsc --noEmit
+      # Built on Linux on purpose: a Windows export stores Next's link-prefetch files differently.
+      - name: Build
+        run: npx next build
+
+  mcp:
+    name: MCP server (sync, smoke test, init)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/mcp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      # The bundled data must match what the library generates.
+      - name: Bundled data is current
+        run: |
+          node sync.mjs
+          git diff --exit-code -- data
+      - run: npm run smoke
+      - name: init is idempotent
+        run: |
+          d="$(mktemp -d)"
+          cd "$d"
+          node "$GITHUB_WORKSPACE/packages/mcp/cli.mjs" init
+          node "$GITHUB_WORKSPACE/packages/mcp/cli.mjs" init | grep -q "Nothing to change"

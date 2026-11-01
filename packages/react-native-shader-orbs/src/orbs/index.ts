@@ -1,0 +1,38 @@
+import { orb01 } from "./orb-01";
+import { orb02 } from "./orb-02";
+import { orb03 } from "./orb-03";
+import { orb04 } from "./orb-04";
+import { orb05 } from "./orb-05";
+import { orb06 } from "./orb-06";
+import { orb07 } from "./orb-07";
+import { orb08 } from "./orb-08";
+import { orb09 } from "./orb-09";
+import { orb10 } from "./orb-10";
+import { orb11 } from "./orb-11";
+import { orb12 } from "./orb-12";
+import { orb13 } from "./orb-13";
+import { orb14 } from "./orb-14";
+import { orb15 } from "./orb-15";
+import { orb16 } from "./orb-16";
+import { orb17 } from "./orb-17";
+import { orb18 } from "./orb-18";
+import { orb19 } from "./orb-19";
+import { orb20 } from "./orb-20";
+import { orb21 } from "./orb-21";
+import { orb22 } from "./orb-22";
+import { orb23 } from "./orb-23";
+import { orb24 } from "./orb-24";
+import { orb25 } from "./orb-25";
+import { orb26 } from "./orb-26";
+import { orb27 } from "./orb-27";
+import { orb28 } from "./orb-28";
+import { orb29 } from "./orb-29";
+import { orb30 } from "./orb-30";
+import { orb31 } from "./orb-31";
+import { orb32 } from "./orb-32";
+import { orb33 } from "./orb-33";
+import type { OrbDefinition } from "../types";
+
+export { orb01, orb02, orb03, orb04, orb05, orb06, orb07, orb08, orb09, orb10, orb11, orb12, orb13, orb14, orb15, orb16, orb17, orb18, orb19, orb20, orb21, orb22, orb23, orb24, orb25, orb26, orb27, orb28, orb29, orb30, orb31, orb32, orb33 };
+
+export const orbs: OrbDefinition[] = [orb01, orb02, orb03, orb04, orb05, orb06, orb07, orb08, orb09, orb10, orb11, orb12, orb13, orb14, orb15, orb16, orb17, orb18, orb19, orb20, orb21, orb22, orb23, orb24, orb25, orb26, orb27, orb28, orb29, orb30, orb31, orb32, orb33];

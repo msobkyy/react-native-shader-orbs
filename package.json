@@ -1,0 +1,11 @@
+{
+  "name": "shader-orbs-monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "scripts": {
+    "build": "pnpm -r build",
+    "codegen": "pnpm --filter codegen run generate",
+    "site": "pnpm --filter web run build",
+    "site:dev": "pnpm --filter web run dev"
+  }
+}

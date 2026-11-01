@@ -1,0 +1,7382 @@
+{
+  "package": "react-native-shader-orbs",
+  "version": "0.1.0-alpha.1",
+  "note": "Generated from the orb sources. Parameter and color keys differ per orb: never guess them. Values are clamped to [min, max].",
+  "license": {
+    "library": "MIT",
+    "shaders": "Non-commercial use only, with attribution to XorDev (https://x.com/XorDev). Commercial use needs XorDev's permission."
+  },
+  "requirements": [
+    "Development build (Expo Go is not supported)",
+    "react-native-webgpu, react-native-reanimated, react-native-worklets",
+    "Tested on Android only"
+  ],
+  "orbs": [
+    {
+      "slug": "orb-01",
+      "title": "ORB-01",
+      "export": "orb01",
+      "description": "cut-glass orb with a dispersive, turbulent interior",
+      "import": "import { orb01 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Spin rate",
+          "default": 0.25,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "tilt",
+          "label": "Field tilt",
+          "default": 0.5,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "turb",
+          "label": "Turbulence",
+          "default": 0.3,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "sheets",
+          "label": "Sheet density",
+          "default": 7,
+          "min": 1,
+          "max": 60,
+          "step": 0.5
+        },
+        {
+          "key": "disperse",
+          "label": "Dispersion",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "stria",
+          "label": "Striation depth",
+          "default": 1,
+          "min": 0,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 1,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 1.5,
+          "min": 0,
+          "max": 100,
+          "step": 0.3
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 20,
+          "min": 0.3,
+          "max": 300,
+          "step": 1.5
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.02,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 60,
+          "min": 1.5,
+          "max": 1500,
+          "step": 10
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "disperse": 1,
+          "exposure": 60,
+          "scatter": 0.02,
+          "sheets": 7,
+          "speed": 0.5,
+          "spin": 0.25,
+          "turb": 0.3
+        },
+        "speaking": {
+          "alphaGain": 2.5,
+          "disperse": 1.5,
+          "exposure": 45,
+          "scatter": 0.015,
+          "sheets": 5.5,
+          "speed": 1.2,
+          "spin": 0.7,
+          "turb": 0.55
+        },
+        "thinking": {
+          "alphaGain": 2.1,
+          "disperse": 1.1,
+          "exposure": 57,
+          "scatter": 0.019,
+          "sheets": 7,
+          "speed": 0.6,
+          "spin": 0.5,
+          "turb": 0.35
+        }
+      },
+      "snippet": "import { ShaderOrb, orb01 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb01} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-02",
+      "title": "ORB-02",
+      "export": "orb02",
+      "description": "ornate scrollwork on a rolling dome",
+      "import": "import { orb02 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.06,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "swell",
+          "label": "Input swell",
+          "default": 0.06,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "zoom",
+          "label": "Pattern zoom",
+          "default": 4.4,
+          "min": 0.15,
+          "max": 40,
+          "step": 0.2
+        },
+        {
+          "key": "bulge",
+          "label": "Sphere bulge",
+          "default": 0.35,
+          "min": 0,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "warpFreq",
+          "label": "Warp frequency",
+          "default": 1.5,
+          "min": 0.05,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "hueShift",
+          "label": "Hue shift",
+          "default": 0,
+          "min": 0,
+          "max": 6.283,
+          "step": 0.05
+        },
+        {
+          "key": "coreClamp",
+          "label": "Flare size",
+          "default": 0.12,
+          "min": 0.003,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "falloff",
+          "label": "Fill",
+          "default": 1,
+          "min": 0.05,
+          "max": 4,
+          "step": 0.05
+        },
+        {
+          "key": "gain",
+          "label": "Exposure",
+          "default": 0.55,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.12,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rimPow",
+          "label": "Rim tightness",
+          "default": 2.2,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2.4,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "baseVis",
+          "label": "Base visibility",
+          "default": 0.08,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        }
+      ],
+      "colors": [],
+      "presets": {
+        "idle": {
+          "alphaGain": 2.4,
+          "coreClamp": 0.12,
+          "falloff": 1,
+          "gain": 0.55,
+          "rim": 0.12,
+          "speed": 0.5,
+          "warpFreq": 1.5,
+          "zoom": 4.4
+        },
+        "speaking": {
+          "alphaGain": 3,
+          "coreClamp": 0.07,
+          "falloff": 1.1,
+          "gain": 0.85,
+          "rim": 0.2,
+          "speed": 3,
+          "warpFreq": 1.2,
+          "zoom": 4.4
+        },
+        "thinking": {
+          "alphaGain": 2.5,
+          "coreClamp": 0.11,
+          "falloff": 0.96,
+          "gain": 0.6,
+          "rim": 0.13,
+          "speed": 0.65,
+          "warpFreq": 1.6,
+          "zoom": 4.6
+        }
+      },
+      "snippet": "import { ShaderOrb, orb02 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb02} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-03",
+      "title": "ORB-03",
+      "export": "orb03",
+      "description": "a turbulent belt of light girdling the ball, contoured in rainbow",
+      "import": "import { orb03 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.6,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "wander",
+          "label": "Belt tilt drift",
+          "default": 0.3,
+          "min": 0,
+          "max": 5,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "feedback",
+          "label": "Tilt feedback",
+          "default": 1.5,
+          "min": 0,
+          "max": 40,
+          "step": 0.1
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 5,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 1.05,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "shellR",
+          "label": "Shell radius",
+          "default": 3,
+          "min": 0.2,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "shellW",
+          "label": "Shell weight",
+          "default": 0.12,
+          "min": 0.005,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "plane",
+          "label": "Belt tightness",
+          "default": 0.15,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "turb",
+          "label": "Warp",
+          "default": 0.55,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "width",
+          "label": "Belt width",
+          "default": 0.004,
+          "min": 0.0005,
+          "max": 0.4,
+          "step": 0.0005
+        },
+        {
+          "key": "pulse",
+          "label": "Belt breathing",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "surge",
+          "label": "Belt surge",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "hue",
+          "label": "Contour hue",
+          "default": 25,
+          "min": 0,
+          "max": 60,
+          "step": 0.1
+        },
+        {
+          "key": "spread",
+          "label": "Colour spread",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 3.3,
+          "min": 0.15,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 0.92,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.1,
+          "min": 0,
+          "max": 40,
+          "step": 0.05
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 1500,
+          "min": 5,
+          "max": 20000,
+          "step": 25
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.0006,
+          "min": 0,
+          "max": 0.1,
+          "step": 0.0002
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 1500,
+          "min": 20,
+          "max": 100000,
+          "step": 50
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.2,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.25,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "envCore": 1.02,
+          "exposure": 1450,
+          "feedback": 2,
+          "hue": 39.8,
+          "plane": 0.085,
+          "scatter": 0.0006,
+          "shellR": 2,
+          "shellW": 0.085,
+          "speed": 0.6,
+          "spread": 0.94,
+          "stepClamp": 1475,
+          "turb": 1.54,
+          "wander": 0.3,
+          "width": 0.001
+        },
+        "speaking": {
+          "alphaGain": 2.7,
+          "envRadius": 3.4,
+          "exposure": 650,
+          "feedback": 0.3,
+          "plane": 0.1,
+          "scatter": 0.0003,
+          "shellR": 1.8,
+          "shellW": 0.19,
+          "speed": 0.9,
+          "spread": 1.04,
+          "surge": 1,
+          "turb": 0.14,
+          "wander": 0.84,
+          "width": 0.018
+        },
+        "thinking": {
+          "alphaGain": 2,
+          "envCore": 0.84,
+          "envRadius": 7.4,
+          "exposure": 2300,
+          "feedback": 7.5,
+          "focal": 1.9,
+          "hue": 28.3,
+          "plane": 0.345,
+          "pulse": 1,
+          "scatter": 0,
+          "shellR": 1.9,
+          "shellW": 0.005,
+          "speed": 2,
+          "spread": 1.02,
+          "turb": 0.7,
+          "wander": 1.1,
+          "width": 0.048
+        }
+      },
+      "snippet": "import { ShaderOrb, orb03 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb03} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-04",
+      "title": "ORB-04",
+      "export": "orb04",
+      "description": "a hollow shell of light, faceted by a voxel lattice",
+      "import": "import { orb04 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.6,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 9,
+          "min": 1,
+          "max": 60,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 1.35,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "shellR",
+          "label": "Shell radius",
+          "default": 5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "pitch",
+          "label": "Facet size",
+          "default": 0.3,
+          "min": 0.005,
+          "max": 1.5,
+          "step": 0.005
+        },
+        {
+          "key": "turb",
+          "label": "Displacement",
+          "default": 0.45,
+          "min": 0,
+          "max": 5,
+          "step": 0.02
+        },
+        {
+          "key": "slack",
+          "label": "Trace slack",
+          "default": 0.1,
+          "min": 0.01,
+          "max": 0.9,
+          "step": 0.005
+        },
+        {
+          "key": "width",
+          "label": "Surface width",
+          "default": 0.003,
+          "min": 0.0005,
+          "max": 0.3,
+          "step": 0.0005
+        },
+        {
+          "key": "hueGain",
+          "label": "Position hue",
+          "default": 1,
+          "min": 0,
+          "max": 6,
+          "step": 0.02
+        },
+        {
+          "key": "floorLevel",
+          "label": "White floor",
+          "default": 0.8,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "envScale",
+          "label": "Silhouette margin",
+          "default": 1.16,
+          "min": 1,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 3000,
+          "min": 20,
+          "max": 40000,
+          "step": 20
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.3,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.3,
+          "exposure": 3000,
+          "hueGain": 1,
+          "slack": 0.1,
+          "speed": 0.6,
+          "turb": 0.45,
+          "width": 0.003
+        },
+        "speaking": {
+          "contrast": 0.92,
+          "envScale": 1.67,
+          "exposure": 1220,
+          "floorLevel": 0.82,
+          "hueGain": 0.5,
+          "pitch": 0.22,
+          "saturation": 1.66,
+          "slack": 0.165,
+          "speed": 2,
+          "turb": 0.8,
+          "width": 0.032
+        },
+        "thinking": {
+          "contrast": 1.75,
+          "exposure": 4800,
+          "hueGain": 1.7,
+          "slack": 0.07,
+          "speed": 1.8,
+          "turb": 0.85,
+          "width": 0.0012
+        }
+      },
+      "snippet": "import { ShaderOrb, orb04 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb04} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-05",
+      "title": "ORB-05",
+      "export": "orb05",
+      "description": "rainbow rings travelling through a lattice of lenses",
+      "import": "import { orb05 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "ring",
+          "label": "Ring speed",
+          "default": 0.9,
+          "min": 0,
+          "max": 8,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.05,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "slide",
+          "label": "Lattice slide",
+          "default": 0.12,
+          "min": 0,
+          "max": 4,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Lattice scale",
+          "default": 5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "lens",
+          "label": "Lens strength",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "poleSoft",
+          "label": "Wall softness",
+          "default": 0.02,
+          "min": 0.0008,
+          "max": 0.5,
+          "step": 0.0008
+        },
+        {
+          "key": "freq",
+          "label": "Ring frequency",
+          "default": 1,
+          "min": 0.05,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "spread",
+          "label": "Colour split",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1.1,
+          "min": 0.05,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.15,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "floorLevel",
+          "label": "Body fill",
+          "default": 0.12,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.4,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        },
+        {
+          "key": "body",
+          "label": "Body",
+          "default": "#141a30"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#bcd8ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "bulge": 0,
+          "contrast": 1,
+          "freq": 1.05,
+          "gain": 1.1,
+          "lens": 0.38,
+          "light": 0.66,
+          "poleSoft": 0.012,
+          "ring": 0.9,
+          "saturation": 1.14,
+          "slide": 0.26,
+          "spread": 0.7,
+          "swirl": 0.195
+        },
+        "speaking": {
+          "bulge": 0.96,
+          "contrast": 0.75,
+          "freq": 4.8,
+          "gain": 1.6,
+          "lens": 1.2,
+          "poleSoft": 0.064,
+          "ring": 1.4,
+          "slide": 1,
+          "spread": 0.68,
+          "swirl": 0.6
+        },
+        "thinking": {
+          "bulge": 0.36,
+          "contrast": 3.2,
+          "floorLevel": 0.4,
+          "freq": 1.3,
+          "gain": 0.88,
+          "lens": 1.28,
+          "poleSoft": 0.042,
+          "rim": 0,
+          "ring": 3,
+          "saturation": 2.36,
+          "slide": 0.88,
+          "spread": 1.82,
+          "swirl": 0.57
+        }
+      },
+      "snippet": "import { ShaderOrb, orb05 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb05} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-06",
+      "title": "ORB-06",
+      "export": "orb06",
+      "description": "a hundred glowing lattices stacked through the ball, interfering",
+      "import": "import { orb06 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "drift",
+          "label": "Layer walk",
+          "default": 0.02,
+          "min": 0,
+          "max": 0.3,
+          "step": 0.002
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Pattern scale",
+          "default": 4,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "depth",
+          "label": "Stack depth",
+          "default": 0.7,
+          "min": 0,
+          "max": 1.6,
+          "step": 0.01
+        },
+        {
+          "key": "freq",
+          "label": "Lattice spacing",
+          "default": 0.7,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.01
+        },
+        {
+          "key": "glowSize",
+          "label": "Glow size",
+          "default": 0.05,
+          "min": 0.002,
+          "max": 1,
+          "step": 0.002
+        },
+        {
+          "key": "hueRate",
+          "label": "Hue per layer",
+          "default": 0.037,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.002
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 4,
+          "min": 0.05,
+          "max": 200,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.4,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#bcd8ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.1,
+          "depth": 0.7,
+          "drift": 0.02,
+          "exposure": 4,
+          "glowSize": 0.05,
+          "hueRate": 0.037,
+          "speed": 0.5
+        },
+        "speaking": {
+          "contrast": 0.9,
+          "depth": 0.26,
+          "drift": 0.13,
+          "exposure": 2.7,
+          "glowSize": 0.062,
+          "hueRate": 0.045,
+          "light": 1.11,
+          "speed": 4.5
+        },
+        "thinking": {
+          "bulge": 2.18,
+          "contrast": 1.55,
+          "depth": 1.25,
+          "drift": 0.105,
+          "exposure": 6.5,
+          "glowSize": 0.016,
+          "hueRate": 0.095,
+          "speed": 2.6
+        }
+      },
+      "snippet": "import { ShaderOrb, orb06 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb06} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-07",
+      "title": "ORB-07",
+      "export": "orb07",
+      "description": "a twist wave travelling out through the ball around a lit column",
+      "import": "import { orb07 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Cell shimmer",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "wave",
+          "label": "Wave speed",
+          "default": 0.7,
+          "min": 0,
+          "max": 8,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "twist",
+          "label": "Twist",
+          "default": 1,
+          "min": 0,
+          "max": 8,
+          "step": 0.02
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.1,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Axis lean",
+          "default": 0.3,
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.015
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "turb",
+          "label": "Cell turbulence",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "column",
+          "label": "Column release",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "stepScale",
+          "label": "Step scale",
+          "default": 0.1,
+          "min": 0.005,
+          "max": 1.5,
+          "step": 0.005
+        },
+        {
+          "key": "hueDepth",
+          "label": "Depth hue",
+          "default": 0.75,
+          "min": 0,
+          "max": 10,
+          "step": 0.03
+        },
+        {
+          "key": "hueStep",
+          "label": "Step hue",
+          "default": 0.45,
+          "min": 0,
+          "max": 10,
+          "step": 0.03
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 0.88,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.15,
+          "min": 0,
+          "max": 100,
+          "step": 0.3
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 400,
+          "min": 3,
+          "max": 5000,
+          "step": 10
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.01,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 60,
+          "min": 1.5,
+          "max": 5000,
+          "step": 5
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.3,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.15,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "column": 0,
+          "exposure": 60,
+          "scatter": 0.01,
+          "speed": 0.5,
+          "turb": 1,
+          "twist": 1,
+          "wave": 0.7
+        },
+        "speaking": {
+          "alphaGain": 2.7,
+          "column": 0.45,
+          "exposure": 26,
+          "scatter": 0.006,
+          "speed": 0.9,
+          "turb": 0.85,
+          "twist": 0.35,
+          "wave": 3.2
+        },
+        "thinking": {
+          "alphaGain": 2,
+          "column": 0,
+          "exposure": 88,
+          "scatter": 0.011,
+          "speed": 1.5,
+          "turb": 1.35,
+          "twist": 3.6,
+          "wave": 0.15
+        }
+      },
+      "snippet": "import { ShaderOrb, orb07 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb07} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-08",
+      "title": "ORB-08",
+      "export": "orb08",
+      "description": "mother-of-pearl contour bands, each layer its own hue",
+      "import": "import { orb08 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Boil",
+          "default": 0.35,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "flow",
+          "label": "Band drift",
+          "default": 0.25,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.06,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Pattern scale",
+          "default": 5.5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "warp",
+          "label": "Warp",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "beat",
+          "label": "Warp beat",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "thick",
+          "label": "Band width",
+          "default": 0.2,
+          "min": 0.02,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "split",
+          "label": "Chromatic split",
+          "default": 0.1,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "iris",
+          "label": "Iridescence",
+          "default": 0.7,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "irisScale",
+          "label": "Iridescence scale",
+          "default": 0.315,
+          "min": 0,
+          "max": 2,
+          "step": 0.005
+        },
+        {
+          "key": "view",
+          "label": "Angle shift",
+          "default": 1.34,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "floor",
+          "label": "Body fill",
+          "default": 0.8,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1.1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.75,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "deep",
+          "label": "Shell body",
+          "default": "#0d1430"
+        },
+        {
+          "key": "low",
+          "label": "Dim layer",
+          "default": "#2fb8c6"
+        },
+        {
+          "key": "crest",
+          "label": "Bright layer",
+          "default": "#fff1de"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#bfe4ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "bulge": 0.8,
+          "contrast": 1.65,
+          "floor": 0.57,
+          "flow": 0.24,
+          "gain": 2.45,
+          "iris": 1.02,
+          "rim": 0.495,
+          "speed": 0.37,
+          "split": 0.1,
+          "swirl": 0.06,
+          "thick": 0.54,
+          "warp": 0.96
+        },
+        "speaking": {
+          "beat": 1,
+          "contrast": 0.78,
+          "flow": 2.49,
+          "gain": 1.75,
+          "iris": 0.45,
+          "speed": 2,
+          "split": 0.3,
+          "swirl": 0.18,
+          "thick": 0.27,
+          "warp": 1.84
+        },
+        "thinking": {
+          "contrast": 1.65,
+          "floor": 0.77,
+          "flow": 0.06,
+          "gain": 0.85,
+          "iris": 1.89,
+          "irisScale": 0.26,
+          "rim": 0.495,
+          "speed": 1.61,
+          "split": 0.3,
+          "swirl": 0.015,
+          "thick": 0.54,
+          "view": 1.21,
+          "warp": 1.56
+        }
+      },
+      "snippet": "import { ShaderOrb, orb08 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb08} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-09",
+      "title": "ORB-09",
+      "export": "orb09",
+      "description": "torn rings of rainbow light worn as the ball's latitudes",
+      "import": "import { orb09 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.6,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.12,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Tilt",
+          "default": 0.4,
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.015
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Ring spacing",
+          "default": 3.5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "warp",
+          "label": "Tear",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "seed",
+          "label": "Ring seed",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "glow",
+          "label": "Ring glow",
+          "default": 0.05,
+          "min": 0,
+          "max": 1,
+          "step": 0.002
+        },
+        {
+          "key": "lineSoft",
+          "label": "Ring width",
+          "default": 0.05,
+          "min": 0.002,
+          "max": 1,
+          "step": 0.002
+        },
+        {
+          "key": "inner",
+          "label": "Inner falloff",
+          "default": 3,
+          "min": 0.2,
+          "max": 12,
+          "step": 0.05
+        },
+        {
+          "key": "fringe",
+          "label": "Rainbow fringe",
+          "default": 0.1,
+          "min": 0,
+          "max": 2,
+          "step": 0.005
+        },
+        {
+          "key": "fringeSoft",
+          "label": "Fringe width",
+          "default": 0.003,
+          "min": 0.001,
+          "max": 1,
+          "step": 0.001
+        },
+        {
+          "key": "ringPhase",
+          "label": "Ring hue step",
+          "default": 0.8,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 1.1,
+          "min": 0.05,
+          "max": 20,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.4,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#b9d6ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.15,
+          "exposure": 1.1,
+          "fringe": 0.1,
+          "glow": 0.05,
+          "lineSoft": 0.05,
+          "speed": 0.6,
+          "spin": 0.12,
+          "warp": 0.45
+        },
+        "speaking": {
+          "contrast": 0.85,
+          "exposure": 0.68,
+          "fringe": 0.81,
+          "fringeSoft": 0.058,
+          "glow": 0.04,
+          "light": 0.99,
+          "lineSoft": 0.22,
+          "rim": 0.015,
+          "ringPhase": 1.03,
+          "seed": 1.02,
+          "speed": 4.7,
+          "spin": 0.34,
+          "warp": 0.22
+        },
+        "thinking": {
+          "contrast": 1.15,
+          "exposure": 1.75,
+          "fringe": 0.96,
+          "fringeSoft": 0.854,
+          "glow": 0.2,
+          "light": 1.035,
+          "lineSoft": 0.152,
+          "rim": 0.66,
+          "ringPhase": 2.53,
+          "saturation": 2.22,
+          "warp": 2.54
+        }
+      },
+      "snippet": "import { ShaderOrb, orb09 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb09} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-10",
+      "title": "ORB-10",
+      "export": "orb10",
+      "description": "a lattice of light knitted into the ball's own skin",
+      "import": "import { orb10 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.6,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "scroll",
+          "label": "Climb",
+          "default": 1.2,
+          "min": 0,
+          "max": 8,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "shellR",
+          "label": "Shell radius",
+          "default": 2.6,
+          "min": 0.2,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "wrap",
+          "label": "Wraps around",
+          "default": 8,
+          "min": 1,
+          "max": 14,
+          "step": 1
+        },
+        {
+          "key": "climb",
+          "label": "Band spacing",
+          "default": 4,
+          "min": 0.05,
+          "max": 12,
+          "step": 0.05
+        },
+        {
+          "key": "turb",
+          "label": "Warp",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "layer",
+          "label": "Layer offset",
+          "default": 0.5,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "cell",
+          "label": "Lattice weight",
+          "default": 0.45,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "stepScale",
+          "label": "Step scale",
+          "default": 0.15,
+          "min": 0.02,
+          "max": 3,
+          "step": 0.005
+        },
+        {
+          "key": "hueStep",
+          "label": "Layer hue",
+          "default": 0.4,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "spread",
+          "label": "Colour spread",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.9,
+          "min": 0.15,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 0.92,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.1,
+          "min": 0,
+          "max": 40,
+          "step": 0.05
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 300,
+          "min": 5,
+          "max": 5000,
+          "step": 5
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.004,
+          "min": 0,
+          "max": 0.2,
+          "step": 0.0005
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 30,
+          "min": 0.05,
+          "max": 500,
+          "step": 0.5
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "cell": 0.45,
+          "exposure": 30,
+          "scatter": 0.004,
+          "scroll": 1.2,
+          "speed": 0.6,
+          "turb": 0.35
+        },
+        "speaking": {
+          "alphaGain": 2.8,
+          "cell": 0.95,
+          "contrast": 0.9,
+          "exposure": 11,
+          "saturation": 1.45,
+          "scatter": 0.0015,
+          "scroll": 4.2,
+          "speed": 1,
+          "turb": 0.18
+        },
+        "thinking": {
+          "alphaGain": 2.6,
+          "cell": 0.3,
+          "contrast": 1.05,
+          "exposure": 13,
+          "fill": 0.12,
+          "layer": 0.65,
+          "saturation": 1.7,
+          "scatter": 0.006,
+          "scroll": 0.5,
+          "speed": 1.9,
+          "spread": 1.55,
+          "stepScale": 0.09,
+          "turb": 0.85
+        }
+      },
+      "snippet": "import { ShaderOrb, orb10 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb10} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-11",
+      "title": "ORB-11",
+      "export": "orb11",
+      "description": "quantum orbital, rainbow chroma",
+      "import": "import { orb11 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.9,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "rotSpeed",
+          "label": "Rotation speed",
+          "default": 0.5,
+          "min": 0,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "swell",
+          "label": "Input swell",
+          "default": 0.07,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "posScale",
+          "label": "Orbital zoom",
+          "default": 0.5,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "flowSpeed",
+          "label": "Flow speed",
+          "default": 0.35,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "flowAmp",
+          "label": "Flow amount",
+          "default": 0.45,
+          "min": 0,
+          "max": 4,
+          "step": 0.05
+        },
+        {
+          "key": "flowScale",
+          "label": "Flow scale",
+          "default": 0.3,
+          "min": 0.3,
+          "max": 10,
+          "step": 0.1
+        },
+        {
+          "key": "precess",
+          "label": "Precession",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.05
+        },
+        {
+          "key": "radialPow",
+          "label": "Radial power",
+          "default": 0.5,
+          "min": 0.5,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "radialDecay",
+          "label": "Radial decay",
+          "default": 1,
+          "min": 0.3,
+          "max": 30,
+          "step": 0.15
+        },
+        {
+          "key": "probPow",
+          "label": "Probability curve",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "probGain",
+          "label": "Probability gain",
+          "default": 3,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "waveFreq",
+          "label": "Wave frequency",
+          "default": 4,
+          "min": 0,
+          "max": 20,
+          "step": 0.5
+        },
+        {
+          "key": "chromaSpread",
+          "label": "Chroma spread",
+          "default": 0.18,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "glow",
+          "label": "Glow",
+          "default": 0.9,
+          "min": 0,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "metalDark",
+          "label": "Metal darkness",
+          "default": 0,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "baseVis",
+          "label": "Base visibility",
+          "default": 0.12,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        }
+      ],
+      "colors": [],
+      "presets": {
+        "idle": {
+          "baseVis": 0.12,
+          "chromaSpread": 0.18,
+          "flowAmp": 0.45,
+          "flowScale": 0.3,
+          "flowSpeed": 0.35,
+          "glow": 0.9,
+          "metalDark": 0,
+          "posScale": 0.5,
+          "precess": 0.3,
+          "probGain": 3,
+          "probPow": 0.4,
+          "radialDecay": 1,
+          "radialPow": 0.5,
+          "radius": 0.9,
+          "rotSpeed": 0.5,
+          "speed": 0.9,
+          "swell": 0.07,
+          "waveFreq": 4
+        },
+        "speaking": {
+          "baseVis": 0.12,
+          "chromaSpread": 0.12,
+          "flowAmp": 0.8,
+          "flowScale": 2.2,
+          "flowSpeed": 2.75,
+          "glow": 0.9,
+          "metalDark": 0,
+          "posScale": 1,
+          "precess": 1.3,
+          "probGain": 4.3,
+          "probPow": 0.31,
+          "radialDecay": 1,
+          "radialPow": 0.5,
+          "radius": 0.9,
+          "rotSpeed": 0.5,
+          "speed": 2.45,
+          "swell": 0.07,
+          "waveFreq": 4
+        },
+        "thinking": {
+          "baseVis": 0.12,
+          "chromaSpread": 0.41,
+          "flowAmp": 1.1,
+          "flowScale": 0.3,
+          "flowSpeed": 0.35,
+          "glow": 0.9,
+          "metalDark": 0,
+          "posScale": 0.65,
+          "precess": 0,
+          "probGain": 3,
+          "probPow": 0.4,
+          "radialDecay": 1.9,
+          "radialPow": 0.5,
+          "radius": 0.9,
+          "rotSpeed": 0.5,
+          "speed": 0.9,
+          "swell": 0.07,
+          "waveFreq": 4
+        }
+      },
+      "snippet": "import { ShaderOrb, orb11 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb11} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-12",
+      "title": "ORB-12",
+      "export": "orb12",
+      "description": "a ball of glossy toy bricks, studs up — it rebuilds itself while it thinks",
+      "import": "import { orb12 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "spin",
+          "label": "Spin",
+          "default": 0.25,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Tilt",
+          "default": 0.55,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "rebuild",
+          "label": "Rebuild rate",
+          "default": 0.4,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "integrated": true
+        },
+        {
+          "key": "gap",
+          "label": "Missing bricks",
+          "default": 0.07,
+          "min": 0,
+          "max": 0.8,
+          "step": 0.01
+        },
+        {
+          "key": "studs",
+          "label": "Studs",
+          "default": 18,
+          "min": 8,
+          "max": 48,
+          "step": 1
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.95,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "patch",
+          "label": "Colour patches",
+          "default": 0.35,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "stud",
+          "label": "Stud relief",
+          "default": 0.85,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "seam",
+          "label": "Seams",
+          "default": 0.6,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "gloss",
+          "label": "Gloss",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gain",
+          "label": "Gain",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "brickA",
+          "label": "Red",
+          "default": "#c4281c"
+        },
+        {
+          "key": "brickB",
+          "label": "Yellow",
+          "default": "#f2cd37"
+        },
+        {
+          "key": "brickC",
+          "label": "Blue",
+          "default": "#1e5aa8"
+        },
+        {
+          "key": "brickD",
+          "label": "Green",
+          "default": "#00852b"
+        },
+        {
+          "key": "brickE",
+          "label": "White",
+          "default": "#f4f4f4"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "gain": 1,
+          "gap": 0.07,
+          "gloss": 1,
+          "light": 1,
+          "rebuild": 0.4,
+          "spin": 0.25
+        },
+        "speaking": {
+          "contrast": 0.95,
+          "gain": 1.25,
+          "gap": 0,
+          "gloss": 2.4,
+          "light": 1.35,
+          "rebuild": 0.5,
+          "seam": 0.3,
+          "spin": 1.6,
+          "stud": 0.6,
+          "tilt": 0.42
+        },
+        "thinking": {
+          "contrast": 1.05,
+          "gain": 1.05,
+          "gap": 0.55,
+          "gloss": 0.55,
+          "light": 1.15,
+          "rebuild": 9,
+          "seam": 0.95,
+          "spin": 0.03,
+          "stud": 1,
+          "tilt": 0.9
+        }
+      },
+      "snippet": "import { ShaderOrb, orb12 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb12} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-13",
+      "title": "ORB-13",
+      "export": "orb13",
+      "description": "plasma globe: crawling lightning filaments",
+      "import": "import { orb13 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 1,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Spin rate",
+          "default": 0.2,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envRadius",
+          "label": "Globe radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "swell",
+          "label": "Input swell",
+          "default": 0.15,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "tilt",
+          "label": "Axis tilt",
+          "default": 0.4,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "fils",
+          "label": "Filament density",
+          "default": 6,
+          "min": 0.5,
+          "max": 12,
+          "step": 0.1
+        },
+        {
+          "key": "writhe",
+          "label": "Writhe",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "writheFreq",
+          "label": "Writhe frequency",
+          "default": 1.6,
+          "min": 0.2,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "sharp",
+          "label": "Arc sharpness",
+          "default": 4,
+          "min": 0.5,
+          "max": 60,
+          "step": 0.5
+        },
+        {
+          "key": "soft",
+          "label": "Arc core softness",
+          "default": 0.06,
+          "min": 0.002,
+          "max": 0.5,
+          "step": 0.002
+        },
+        {
+          "key": "whiten",
+          "label": "Core whitening",
+          "default": 0.008,
+          "min": 0,
+          "max": 0.2,
+          "step": 0.002
+        },
+        {
+          "key": "coreGain",
+          "label": "Nucleus glow",
+          "default": 1.6,
+          "min": 0,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "tipGain",
+          "label": "Glass flare",
+          "default": 1.8,
+          "min": 0,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "fill",
+          "label": "Body haze",
+          "default": 0.02,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 40,
+          "min": 0.3,
+          "max": 300,
+          "step": 1.5
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.012,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 11,
+          "min": 0.1,
+          "max": 200,
+          "step": 0.5
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2.5,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      ],
+      "colors": [
+        {
+          "key": "inner",
+          "label": "Nucleus",
+          "default": "#ff70d8"
+        },
+        {
+          "key": "arc",
+          "label": "Arc",
+          "default": "#5a5cff"
+        },
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "coreGain": 1.6,
+          "exposure": 11,
+          "fils": 6,
+          "sharp": 4,
+          "soft": 0.06,
+          "speed": 1,
+          "spin": 0.2,
+          "tipGain": 1.8,
+          "whiten": 0.008,
+          "writhe": 0.9
+        },
+        "speaking": {
+          "coreGain": 2,
+          "exposure": 8.5,
+          "fils": 8,
+          "sharp": 3.5,
+          "soft": 0.05,
+          "speed": 2.6,
+          "spin": 0.3,
+          "tipGain": 2.4,
+          "whiten": 0.012,
+          "writhe": 1.3
+        },
+        "thinking": {
+          "coreGain": 1.2,
+          "exposure": 10,
+          "fils": 7,
+          "sharp": 3,
+          "soft": 0.08,
+          "speed": 1.8,
+          "spin": 0.45,
+          "tipGain": 1.5,
+          "whiten": 0.012,
+          "writhe": 1.2
+        }
+      },
+      "snippet": "import { ShaderOrb, orb13 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb13} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-14",
+      "title": "ORB-14",
+      "export": "orb14",
+      "description": "a lit plasma dome quantized to chunky two-tone pixels",
+      "import": "import { orb14 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Wave speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.15,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "cells",
+          "label": "Grid cells",
+          "default": 140,
+          "min": 32,
+          "max": 320,
+          "step": 2
+        },
+        {
+          "key": "levels",
+          "label": "Tone steps",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 1
+        },
+        {
+          "key": "scale",
+          "label": "Wave scale",
+          "default": 1.5,
+          "min": 0.3,
+          "max": 12,
+          "step": 0.1
+        },
+        {
+          "key": "plasma",
+          "label": "Wave amount",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "ink",
+          "label": "Ink",
+          "default": "#101426"
+        },
+        {
+          "key": "paper",
+          "label": "Paper",
+          "default": "#cfe6ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.1,
+          "gain": 1,
+          "plasma": 0.9,
+          "speed": 0.5,
+          "spin": 0.15
+        },
+        "speaking": {
+          "contrast": 1.05,
+          "gain": 1.3,
+          "plasma": 1,
+          "speed": 1.3,
+          "spin": 0.8
+        },
+        "thinking": {
+          "contrast": 1.15,
+          "gain": 0.95,
+          "plasma": 1.15,
+          "speed": 1.6,
+          "spin": 0.05
+        }
+      },
+      "snippet": "import { ShaderOrb, orb14 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb14} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-15",
+      "title": "ORB-15",
+      "export": "orb15",
+      "description": "an iridescent particle-track web worn as the ball's skin",
+      "import": "import { orb15 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "wander",
+          "label": "Axis wander",
+          "default": 0.15,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "fieldScale",
+          "label": "Web density",
+          "default": 2.4,
+          "min": 1,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "turb",
+          "label": "Weave",
+          "default": 0.8,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "stepScale",
+          "label": "Skin depth",
+          "default": 0.015,
+          "min": 0.0015,
+          "max": 0.4,
+          "step": 0.005
+        },
+        {
+          "key": "disperse",
+          "label": "Dispersion",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 1,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.3,
+          "min": 0,
+          "max": 100,
+          "step": 0.3
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 150,
+          "min": 3,
+          "max": 5000,
+          "step": 30
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.01,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 50,
+          "min": 1.5,
+          "max": 1500,
+          "step": 10
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.35,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.35,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "disperse": 1,
+          "exposure": 72,
+          "scatter": 0.01,
+          "speed": 0.4,
+          "turb": 0.75,
+          "wander": 0.12
+        },
+        "speaking": {
+          "alphaGain": 2.5,
+          "disperse": 1.6,
+          "exposure": 46,
+          "scatter": 0.0075,
+          "speed": 2,
+          "turb": 1.1,
+          "wander": 0.3
+        },
+        "thinking": {
+          "alphaGain": 2.1,
+          "disperse": 0.8,
+          "exposure": 66,
+          "scatter": 0.0095,
+          "speed": 1,
+          "turb": 0.95,
+          "wander": 0.7
+        }
+      },
+      "snippet": "import { ShaderOrb, orb15 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb15} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-16",
+      "title": "ORB-16",
+      "export": "orb16",
+      "description": "sunlight through water — a caustic net crawling over the ball, fringing into colour where it moves",
+      "import": "import { orb16 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "flow",
+          "label": "Water flow",
+          "default": 0.9,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Turn",
+          "default": 0.08,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "swellRate",
+          "label": "Surge rate",
+          "default": 0.6,
+          "min": 0,
+          "max": 8,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Net scale",
+          "default": 9,
+          "min": 3,
+          "max": 30,
+          "step": 0.1
+        },
+        {
+          "key": "warp",
+          "label": "Ripple depth",
+          "default": 0.8,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "edge",
+          "label": "Line sharpness",
+          "default": 2.2,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "split",
+          "label": "Colour fringe",
+          "default": 0.6,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "swell",
+          "label": "Surge depth",
+          "default": 0.15,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "gain",
+          "label": "Sun power",
+          "default": 1.6,
+          "min": 0.05,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Tone knee",
+          "default": 1.1,
+          "min": 0.15,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "light",
+          "label": "Floor light",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.6,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "deep",
+          "label": "Water",
+          "default": "#0b2f6e"
+        },
+        {
+          "key": "sun",
+          "label": "Caustic light",
+          "default": "#7ff6ff"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#bfe8ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.3,
+          "edge": 3,
+          "flow": 0.92,
+          "gain": 6,
+          "light": 0.9,
+          "rim": 0.6,
+          "spin": 0.09,
+          "split": 0.6,
+          "swell": 0.15,
+          "swellRate": 0.6,
+          "warp": 0.8
+        },
+        "speaking": {
+          "contrast": 0.85,
+          "edge": 1.7,
+          "flow": 1.8,
+          "gain": 3.6,
+          "light": 0.96,
+          "rim": 0.18,
+          "spin": 0.7,
+          "split": 1.1,
+          "swell": 1,
+          "swellRate": 5.4,
+          "warp": 1.7
+        },
+        "thinking": {
+          "contrast": 1.15,
+          "edge": 2.8,
+          "flow": 3.22,
+          "gain": 3.35,
+          "light": 0.525,
+          "rim": 0.21,
+          "spin": 0.03,
+          "split": 0.36,
+          "swell": 0.26,
+          "swellRate": 2.4,
+          "warp": 1.52
+        }
+      },
+      "snippet": "import { ShaderOrb, orb16 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb16} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-17",
+      "title": "ORB-17",
+      "export": "orb17",
+      "description": "a grainy many-coloured storm with band shear and lightning",
+      "import": "import { orb17 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Storm speed",
+          "default": 0.9,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.12,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Weather scale",
+          "default": 2.4,
+          "min": 0.3,
+          "max": 12,
+          "step": 0.1
+        },
+        {
+          "key": "bands",
+          "label": "Band count",
+          "default": 6,
+          "min": 0,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "shear",
+          "label": "Band shear",
+          "default": 1.1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "warp",
+          "label": "Warp",
+          "default": 2.2,
+          "min": 0,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "churn",
+          "label": "Churn",
+          "default": 1.4,
+          "min": 0,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1.15,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.35,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "grain",
+          "label": "Field grain",
+          "default": 0.4,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "filmGrain",
+          "label": "Film grain",
+          "default": 0.35,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "grainSize",
+          "label": "Grain size",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1
+        },
+        {
+          "key": "rainbow",
+          "label": "Iridescence",
+          "default": 0.65,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "flashRate",
+          "label": "Flash rate",
+          "default": 1.6,
+          "min": 0,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "flash",
+          "label": "Flash power",
+          "default": 1.2,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.85,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "deep",
+          "label": "Deep",
+          "default": "#2a0f4e"
+        },
+        {
+          "key": "low",
+          "label": "Low pressure",
+          "default": "#0fd0c3"
+        },
+        {
+          "key": "mid",
+          "label": "Mid pressure",
+          "default": "#ff5e9d"
+        },
+        {
+          "key": "hot",
+          "label": "High pressure",
+          "default": "#ffd166"
+        },
+        {
+          "key": "flash",
+          "label": "Lightning",
+          "default": "#eaf4ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "churn": 1.4,
+          "contrast": 1.35,
+          "flash": 0.7,
+          "gain": 1.15,
+          "shear": 1.1,
+          "speed": 0.9,
+          "warp": 2.2
+        },
+        "speaking": {
+          "churn": 1.6,
+          "contrast": 1.2,
+          "flash": 2.6,
+          "gain": 1.45,
+          "shear": 2.2,
+          "speed": 1.6,
+          "warp": 2.6
+        },
+        "thinking": {
+          "churn": 2.1,
+          "contrast": 1.5,
+          "flash": 0.6,
+          "gain": 1.05,
+          "shear": 0.6,
+          "speed": 2.2,
+          "warp": 3.4
+        }
+      },
+      "snippet": "import { ShaderOrb, orb17 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb17} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-18",
+      "title": "ORB-18",
+      "export": "orb18",
+      "description": "a crystal folded out of one eighth of space, tumbling",
+      "import": "import { orb18 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "wander",
+          "label": "Tumble",
+          "default": 0.5,
+          "min": 0,
+          "max": 5,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 4,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 1.5,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "fold",
+          "label": "Octant fold",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "crease",
+          "label": "Diagonal crease",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "freq",
+          "label": "Crystal frequency",
+          "default": 5,
+          "min": 0.1,
+          "max": 20,
+          "step": 0.05
+        },
+        {
+          "key": "stepScale",
+          "label": "Step scale",
+          "default": 0.3,
+          "min": 0.02,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "hue",
+          "label": "Depth hue",
+          "default": 1.5,
+          "min": 0,
+          "max": 4,
+          "step": 0.01
+        },
+        {
+          "key": "spread",
+          "label": "Colour spread",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.1,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 0.9,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.02,
+          "min": 0,
+          "max": 20,
+          "step": 0.01
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 40,
+          "min": 1,
+          "max": 2000,
+          "step": 1
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.004,
+          "min": 0,
+          "max": 0.2,
+          "step": 0.001
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 18,
+          "min": 0.2,
+          "max": 500,
+          "step": 0.5
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.2,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.25,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "crease": 1,
+          "exposure": 18,
+          "fold": 1,
+          "freq": 5,
+          "scatter": 0.004,
+          "wander": 0.5
+        },
+        "speaking": {
+          "alphaGain": 2.7,
+          "crease": 1,
+          "envCore": 0.49,
+          "exposure": 8,
+          "fold": 1,
+          "freq": 6.05,
+          "hue": 2,
+          "saturation": 2,
+          "scatter": 0.002,
+          "stepScale": 0.51,
+          "wander": 0.7
+        },
+        "thinking": {
+          "alphaGain": 2,
+          "crease": 1,
+          "exposure": 26,
+          "focal": 2.7,
+          "fold": 0.91,
+          "freq": 4.1,
+          "scatter": 0.02,
+          "stepClamp": 1200,
+          "wander": 1.08
+        }
+      },
+      "snippet": "import { ShaderOrb, orb18 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb18} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-19",
+      "title": "ORB-19",
+      "export": "orb19",
+      "description": "beads swelling and shrinking in their cells, packed over the ball",
+      "import": "import { orb19 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.05,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "slide",
+          "label": "Drift",
+          "default": 0.1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Packing scale",
+          "default": 10,
+          "min": 0.3,
+          "max": 30,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "grow",
+          "label": "Dot size",
+          "default": 0.185,
+          "min": -0.2,
+          "max": 1.2,
+          "step": 0.005
+        },
+        {
+          "key": "vary",
+          "label": "Size variation",
+          "default": 0.13,
+          "min": 0,
+          "max": 0.4,
+          "step": 0.005
+        },
+        {
+          "key": "skew",
+          "label": "Generator detune",
+          "default": 0.62,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "jitter",
+          "label": "Dot wander",
+          "default": 0.1,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "edge",
+          "label": "Rim hardness",
+          "default": 50,
+          "min": 1,
+          "max": 200,
+          "step": 1
+        },
+        {
+          "key": "bead",
+          "label": "Bead shading",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1,
+          "min": 0.05,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "floorLevel",
+          "label": "Body fill",
+          "default": 0.06,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.3,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "low",
+          "label": "Dot",
+          "default": "#ffffff"
+        },
+        {
+          "key": "high",
+          "label": "Dot accent",
+          "default": "#eef5ff"
+        },
+        {
+          "key": "body",
+          "label": "Body",
+          "default": "#05070c"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#9dbfe4"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "bulge": 0.08,
+          "contrast": 2.6,
+          "edge": 51,
+          "gain": 2.28,
+          "grow": 0.12,
+          "jitter": 0.74,
+          "rim": 0.345,
+          "skew": 0.63,
+          "slide": 0.1,
+          "speed": 0.52,
+          "swirl": 0.045,
+          "vary": 0.19
+        },
+        "speaking": {
+          "bulge": 0.28,
+          "contrast": 3.2,
+          "edge": 141,
+          "floorLevel": 0,
+          "gain": 1.35,
+          "grow": 0.22,
+          "jitter": 0.17,
+          "saturation": 2.04,
+          "skew": 0,
+          "slide": 0.55,
+          "speed": 2.85,
+          "swirl": 0.585,
+          "vary": 0.365
+        },
+        "thinking": {
+          "bulge": 0.14,
+          "contrast": 0.55,
+          "gain": 1.04,
+          "grow": 0.19,
+          "jitter": 0.37,
+          "light": 0.585,
+          "rim": 0.24,
+          "skew": 1.13,
+          "slide": 0.84,
+          "speed": 2.55,
+          "swirl": 0.57,
+          "vary": 0.165
+        }
+      },
+      "snippet": "import { ShaderOrb, orb19 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb19} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-20",
+      "title": "ORB-20",
+      "export": "orb20",
+      "description": "a water film rushing down the ball, fountain-style",
+      "import": "import { orb20 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Ripple speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "flow",
+          "label": "Fall rush",
+          "default": 3,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "tilt",
+          "label": "Flow tilt",
+          "default": 0.15,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "stretch",
+          "label": "Fall stretch",
+          "default": 0.3,
+          "min": 0.03,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "foam",
+          "label": "Foam",
+          "default": 0.3,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "wall",
+          "label": "Film sharpness",
+          "default": 3,
+          "min": 0.15,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "stepScale",
+          "label": "Step scale",
+          "default": 0.2,
+          "min": 0.015,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "hueScale",
+          "label": "Hue banding",
+          "default": 0.85,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 1,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.4,
+          "min": 0,
+          "max": 100,
+          "step": 0.3
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 20,
+          "min": 0.3,
+          "max": 300,
+          "step": 1.5
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.01,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 22,
+          "min": 1.5,
+          "max": 1500,
+          "step": 10
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.55,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "exposure": 22,
+          "flow": 3,
+          "foam": 0.3,
+          "scatter": 0.01,
+          "speed": 0.5
+        },
+        "speaking": {
+          "alphaGain": 2.5,
+          "exposure": 16,
+          "flow": 5.5,
+          "foam": 0.45,
+          "scatter": 0.0075,
+          "speed": 1
+        },
+        "thinking": {
+          "alphaGain": 2.1,
+          "exposure": 21,
+          "flow": 3.3,
+          "foam": 0.33,
+          "scatter": 0.0095,
+          "speed": 0.6
+        }
+      },
+      "snippet": "import { ShaderOrb, orb20 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb20} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-21",
+      "title": "ORB-21",
+      "export": "orb21",
+      "description": "light diffusing through a cloud",
+      "import": "import { orb21 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 10,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 4.4,
+          "min": 0.5,
+          "max": 40,
+          "step": 0.2
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 1.8,
+          "min": 0.3,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "radius",
+          "label": "Cloud radius",
+          "default": 2,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "scale",
+          "label": "Cloud scale",
+          "default": 0.8,
+          "min": 0.1,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "churn",
+          "label": "Churn",
+          "default": 0.3,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "threshold",
+          "label": "Clumping",
+          "default": 0.075,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "edgeSoft",
+          "label": "Edge softness",
+          "default": 0.8,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "density",
+          "label": "Density",
+          "default": 3.2,
+          "min": 0.03,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "absorb",
+          "label": "Absorption",
+          "default": 1.4,
+          "min": 0.03,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "shadowAbsorb",
+          "label": "Shadow depth",
+          "default": 2.4,
+          "min": 0,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "shadowLift",
+          "label": "Shadow lift",
+          "default": 0.55,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "aniso",
+          "label": "Forward scatter",
+          "default": 0.45,
+          "min": -0.9,
+          "max": 0.9,
+          "step": 0.01
+        },
+        {
+          "key": "lightSpin",
+          "label": "Light orbit",
+          "default": 0.12,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "power",
+          "label": "Light power",
+          "default": 1.9,
+          "min": 0.03,
+          "max": 40,
+          "step": 0.2
+        },
+        {
+          "key": "ambient",
+          "label": "Ambient",
+          "default": 0.12,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 1,
+          "min": 0.03,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 1.5,
+          "min": 0.05,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "light",
+          "label": "Light",
+          "default": "#ffd7a3"
+        },
+        {
+          "key": "shadow",
+          "label": "Shadow",
+          "default": "#3a4a8c"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "ambient": 0.12,
+          "power": 1.9,
+          "shadowLift": 0.55
+        },
+        "speaking": {
+          "ambient": 0.46,
+          "power": 3.1,
+          "shadowLift": 0.95
+        },
+        "thinking": {
+          "ambient": 0.22,
+          "power": 2.15,
+          "shadowLift": 0.65
+        }
+      },
+      "snippet": "import { ShaderOrb, orb21 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb21} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-22",
+      "title": "ORB-22",
+      "export": "orb22",
+      "description": "field lines swirling around the ball about a wandering axis",
+      "import": "import { orb22 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "wander",
+          "label": "Axis wander",
+          "default": 0.12,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "hug",
+          "label": "Surface hug",
+          "default": 0.8,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "turb",
+          "label": "Cell shimmer",
+          "default": 0.6,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "stepScale",
+          "label": "Step scale",
+          "default": 0.07,
+          "min": 0.005,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "hueStep",
+          "label": "Step hue",
+          "default": 0.12,
+          "min": 0,
+          "max": 10,
+          "step": 0.03
+        },
+        {
+          "key": "hueDepth",
+          "label": "Depth hue",
+          "default": 1.4,
+          "min": 0,
+          "max": 10,
+          "step": 0.03
+        },
+        {
+          "key": "glow",
+          "label": "Vector glow",
+          "default": 1.4,
+          "min": 0,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "glowFew",
+          "label": "Glow density",
+          "default": 0.12,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "envCore",
+          "label": "Envelope core",
+          "default": 0.88,
+          "min": 0.3,
+          "max": 1.02,
+          "step": 0.01
+        },
+        {
+          "key": "fill",
+          "label": "Body fill",
+          "default": 0.15,
+          "min": 0,
+          "max": 100,
+          "step": 0.3
+        },
+        {
+          "key": "stepClamp",
+          "label": "Step clamp",
+          "default": 800,
+          "min": 3,
+          "max": 5000,
+          "step": 30
+        },
+        {
+          "key": "scatter",
+          "label": "Diffusion",
+          "default": 0.01,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.003
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 260,
+          "min": 1.5,
+          "max": 5000,
+          "step": 15
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.3,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.15,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "alphaGain": 2,
+          "exposure": 260,
+          "glow": 1.3,
+          "glowFew": 0.12,
+          "scatter": 0.01,
+          "speed": 0.4,
+          "turb": 0.55,
+          "wander": 0.1
+        },
+        "speaking": {
+          "alphaGain": 2.5,
+          "exposure": 170,
+          "glow": 2.4,
+          "glowFew": 0.22,
+          "scatter": 0.0075,
+          "speed": 2.2,
+          "turb": 0.85,
+          "wander": 0.3
+        },
+        "thinking": {
+          "alphaGain": 2.1,
+          "exposure": 230,
+          "glow": 1.7,
+          "glowFew": 0.07,
+          "scatter": 0.0095,
+          "speed": 1.2,
+          "turb": 0.7,
+          "wander": 0.6
+        }
+      },
+      "snippet": "import { ShaderOrb, orb22 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb22} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-23",
+      "title": "ORB-23",
+      "export": "orb23",
+      "description": "an ASCII glyph matrix in CRT green, wrapped on the ball",
+      "import": "import { orb23 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "drift",
+          "label": "Drift",
+          "default": 0.55,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "scroll",
+          "label": "Scroll",
+          "default": 0.05,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "speed",
+          "label": "Pulse rate",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "pulse",
+          "label": "Pulse depth",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.12,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "cells",
+          "label": "Glyph grid",
+          "default": 40,
+          "min": 16,
+          "max": 120,
+          "step": 2
+        },
+        {
+          "key": "scale",
+          "label": "Field scale",
+          "default": 1.6,
+          "min": 0.3,
+          "max": 10,
+          "step": 0.1
+        },
+        {
+          "key": "density",
+          "label": "Glyph density",
+          "default": 0.48,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "dropout",
+          "label": "Dropout",
+          "default": 0.48,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.6,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim glow",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gain",
+          "label": "Phosphor gain",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "glow",
+          "label": "Glow",
+          "default": "#57ffc9"
+        },
+        {
+          "key": "deep",
+          "label": "Deep",
+          "default": "#0b3b2d"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "cells": 68,
+          "density": 0.31,
+          "drift": 0.55,
+          "dropout": 0.24,
+          "gain": 0.9,
+          "light": 1.11,
+          "pulse": 0,
+          "rim": 0.66,
+          "scale": 5.1,
+          "scroll": 0.05,
+          "speed": 0.52,
+          "spin": 0.12
+        },
+        "speaking": {
+          "cells": 120,
+          "density": 0.56,
+          "drift": 0.4,
+          "dropout": 0.59,
+          "gain": 2.95,
+          "light": 0.39,
+          "pulse": 1.27,
+          "rim": 0.51,
+          "scale": 7.2,
+          "scroll": 0.1,
+          "speed": 2.85,
+          "spin": 1.05
+        },
+        "thinking": {
+          "cells": 86,
+          "contrast": 1.3,
+          "density": 0.33,
+          "drift": 3.05,
+          "dropout": 0.13,
+          "gain": 0.95,
+          "light": 0.855,
+          "pulse": 0.58,
+          "rim": 0.51,
+          "scroll": 0.65,
+          "speed": 0.45,
+          "spin": 0.04
+        }
+      },
+      "snippet": "import { ShaderOrb, orb23 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb23} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-24",
+      "title": "ORB-24",
+      "export": "orb24",
+      "description": "a Minecraft Earth — a perfect voxel sphere whose seasons cycle it through lush, cherry-grove, ice, mesa and desert worlds",
+      "import": "import { orb24 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "spin",
+          "label": "Spin",
+          "default": 0.22,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Tilt",
+          "default": 0.45,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "drift",
+          "label": "Terrain drift",
+          "default": 0.12,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "season",
+          "label": "Season rate",
+          "default": 0.3,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "shuffle",
+          "label": "Ember rate",
+          "default": 0.8,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "blocks",
+          "label": "Blocks",
+          "default": 64,
+          "min": 16,
+          "max": 96,
+          "step": 1
+        },
+        {
+          "key": "rough",
+          "label": "Mountains",
+          "default": 0.45,
+          "min": 0,
+          "max": 0.8,
+          "step": 0.01
+        },
+        {
+          "key": "scale",
+          "label": "Terrain scale",
+          "default": 2.4,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "sea",
+          "label": "Sea level",
+          "default": 0.5,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "trees",
+          "label": "Trees",
+          "default": 0.75,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "cave",
+          "label": "Caves",
+          "default": 0.4,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "ore",
+          "label": "Ore density",
+          "default": 0.12,
+          "min": 0,
+          "max": 0.6,
+          "step": 0.01
+        },
+        {
+          "key": "glow",
+          "label": "Ore glow",
+          "default": 0.9,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "core",
+          "label": "Molten core",
+          "default": 0.5,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "texture",
+          "label": "Texture grain",
+          "default": 0.6,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gain",
+          "label": "Gain",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "grass",
+          "label": "Grass",
+          "default": "#6abe30"
+        },
+        {
+          "key": "dirt",
+          "label": "Mud",
+          "default": "#6f4a2f"
+        },
+        {
+          "key": "stone",
+          "label": "Stone",
+          "default": "#8a8a90"
+        },
+        {
+          "key": "sand",
+          "label": "Sand",
+          "default": "#dbcf9c"
+        },
+        {
+          "key": "water",
+          "label": "Water",
+          "default": "#2f66d0"
+        },
+        {
+          "key": "leaf",
+          "label": "Leaves",
+          "default": "#3e8f27"
+        },
+        {
+          "key": "ore",
+          "label": "Ore",
+          "default": "#4de3ff"
+        },
+        {
+          "key": "lava",
+          "label": "Lava",
+          "default": "#ff7b26"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "core": 0.5,
+          "drift": 0.12,
+          "gain": 1,
+          "glow": 0.9,
+          "light": 1,
+          "season": 0.3,
+          "shuffle": 0.8,
+          "spin": 0.22
+        },
+        "speaking": {
+          "core": 1,
+          "drift": 0.35,
+          "gain": 1.1,
+          "glow": 1.6,
+          "light": 1.15,
+          "season": 0.6,
+          "shuffle": 1.6,
+          "spin": 0.85
+        },
+        "thinking": {
+          "core": 0.35,
+          "drift": 1.7,
+          "gain": 0.95,
+          "glow": 1.3,
+          "light": 0.9,
+          "season": 1.8,
+          "shuffle": 4.5,
+          "spin": 0.04
+        }
+      },
+      "snippet": "import { ShaderOrb, orb24 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb24} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-25",
+      "title": "ORB-25",
+      "export": "orb25",
+      "description": "the folds of a warped field, drawn by their own steepness",
+      "import": "import { orb25 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Boil",
+          "default": 3,
+          "min": 0.015,
+          "max": 20,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "drift",
+          "label": "Drift",
+          "default": 0.6,
+          "min": 0,
+          "max": 8,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.05,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Cell scale",
+          "default": 7.5,
+          "min": 0.3,
+          "max": 60,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.3,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "warp",
+          "label": "Fold",
+          "default": 0.4,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "zoom",
+          "label": "Octave zoom",
+          "default": 1.111,
+          "min": 0.6,
+          "max": 2,
+          "step": 0.005
+        },
+        {
+          "key": "ripple",
+          "label": "Ripple",
+          "default": 0.3,
+          "min": 0.02,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "edgeGain",
+          "label": "Edge gain",
+          "default": 10,
+          "min": 0.5,
+          "max": 60,
+          "step": 0.5
+        },
+        {
+          "key": "blur",
+          "label": "Rim width",
+          "default": 2.5,
+          "min": 0.5,
+          "max": 12,
+          "step": 0.25
+        },
+        {
+          "key": "fringe",
+          "label": "Chromatic fringe",
+          "default": 0.09,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.005
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 0.8,
+          "min": 0.05,
+          "max": 40,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.5,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "floorLevel",
+          "label": "Body fill",
+          "default": 0.16,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Rim",
+          "default": "#dbe8f7"
+        },
+        {
+          "key": "body",
+          "label": "Body",
+          "default": "#0d1118"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#a8c8f0"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "contrast": 1.15,
+          "drift": 0.6,
+          "edgeGain": 12.5,
+          "exposure": 0.8,
+          "speed": 3,
+          "swirl": 0.05,
+          "warp": 0.4,
+          "zoom": 1.07
+        },
+        "speaking": {
+          "blur": 2,
+          "bulge": 2.22,
+          "contrast": 1.35,
+          "drift": 0.8,
+          "edgeGain": 5,
+          "exposure": 2.35,
+          "fringe": 0.23,
+          "ripple": 1.18,
+          "scale": 11.5,
+          "speed": 1.4,
+          "swirl": 0.6,
+          "warp": 1.55,
+          "zoom": 0.945
+        },
+        "thinking": {
+          "blur": 2.75,
+          "bulge": 0.38,
+          "contrast": 1.5,
+          "drift": 0.15,
+          "edgeGain": 33,
+          "exposure": 0.55,
+          "fringe": 0.2,
+          "light": 0.525,
+          "rim": 0.69,
+          "ripple": 0.18,
+          "saturation": 2,
+          "speed": 4.7,
+          "swirl": 0.02,
+          "warp": 0.34,
+          "zoom": 1.12
+        }
+      },
+      "snippet": "import { ShaderOrb, orb25 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb25} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-26",
+      "title": "ORB-26",
+      "export": "orb26",
+      "description": "a crazed web of coloured threads knotted to a cell grid",
+      "import": "import { orb26 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Boil",
+          "default": 0.4,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 0.07,
+          "min": 0,
+          "max": 3,
+          "step": 0.015,
+          "integrated": true
+        },
+        {
+          "key": "drift",
+          "label": "Crazing drift",
+          "default": 0.18,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Cell scale",
+          "default": 9,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.25,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "warp",
+          "label": "Warp",
+          "default": 0.85,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "pole",
+          "label": "Knot strength",
+          "default": 0.25,
+          "min": 0,
+          "max": 2,
+          "step": 0.005
+        },
+        {
+          "key": "poleSoft",
+          "label": "Knot size",
+          "default": 0.012,
+          "min": 0.001,
+          "max": 1,
+          "step": 0.001
+        },
+        {
+          "key": "pulse",
+          "label": "Cell breathing",
+          "default": 0.35,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "sharp",
+          "label": "Thread width",
+          "default": 4.5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.05
+        },
+        {
+          "key": "split",
+          "label": "Chromatic split",
+          "default": 0.045,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "core",
+          "label": "Hot core",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "floor",
+          "label": "Body fill",
+          "default": 0.9,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.35,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.7,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.45,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "deep",
+          "label": "Glaze",
+          "default": "#111a2e"
+        },
+        {
+          "key": "line",
+          "label": "Thread",
+          "default": "#3fd2ff"
+        },
+        {
+          "key": "hot",
+          "label": "Hot thread",
+          "default": "#fff4d6"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#a9d8ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "bulge": 3.28,
+          "contrast": 1.35,
+          "core": 2.235,
+          "drift": 0.18,
+          "floor": 0.26,
+          "gain": 1,
+          "light": 0.705,
+          "pole": 0.13,
+          "poleSoft": 0.001,
+          "pulse": 0.35,
+          "sharp": 4.5,
+          "speed": 0.42,
+          "split": 0.045,
+          "swirl": 0.075,
+          "warp": 2
+        },
+        "speaking": {
+          "bulge": 0.78,
+          "contrast": 1.95,
+          "core": 1.08,
+          "drift": 1.74,
+          "floor": 0.48,
+          "gain": 1.3,
+          "pole": 0.195,
+          "poleSoft": 0.001,
+          "pulse": 1.39,
+          "scale": 11,
+          "sharp": 2.1,
+          "speed": 6.45,
+          "split": 0.045,
+          "swirl": 0.555,
+          "warp": 0.76
+        },
+        "thinking": {
+          "bulge": 3.28,
+          "contrast": 1.6,
+          "core": 2.235,
+          "drift": 0.51,
+          "floor": 0.28,
+          "gain": 1,
+          "light": 0.705,
+          "pole": 0.18,
+          "poleSoft": 0.001,
+          "pulse": 0.22,
+          "sharp": 3.6,
+          "speed": 1,
+          "split": 0.03,
+          "swirl": 0.3,
+          "warp": 2
+        }
+      },
+      "snippet": "import { ShaderOrb, orb26 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb26} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-27",
+      "title": "ORB-27",
+      "export": "orb27",
+      "description": "a weather-radar mosaic, fronts of coloured pixels sweeping the ball",
+      "import": "import { orb27 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Front speed",
+          "default": 0.6,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.04,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Grid zoom",
+          "default": 2.4,
+          "min": 0.3,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "cells",
+          "label": "Grid",
+          "default": 34,
+          "min": 8,
+          "max": 120,
+          "step": 1
+        },
+        {
+          "key": "dot",
+          "label": "Dot size",
+          "default": 0.36,
+          "min": 0.1,
+          "max": 0.5,
+          "step": 0.01
+        },
+        {
+          "key": "swirl",
+          "label": "Swirl",
+          "default": 1.5,
+          "min": 0,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "vortex",
+          "label": "Vortex size",
+          "default": 0.45,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "freq",
+          "label": "Storm scale",
+          "default": 1.6,
+          "min": 0.2,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "warp",
+          "label": "Bend",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "lo",
+          "label": "Quiet threshold",
+          "default": 0.12,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "hi",
+          "label": "Peak threshold",
+          "default": 0.82,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "curve",
+          "label": "Response curve",
+          "default": 1.4,
+          "min": 0.5,
+          "max": 4,
+          "step": 0.05
+        },
+        {
+          "key": "dither",
+          "label": "Class dither",
+          "default": 0.12,
+          "min": 0,
+          "max": 0.6,
+          "step": 0.005
+        },
+        {
+          "key": "sparse",
+          "label": "Quiet density",
+          "default": 0.16,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "density",
+          "label": "Fill",
+          "default": 1,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "twinkle",
+          "label": "Twinkle rate",
+          "default": 3,
+          "min": 0,
+          "max": 30,
+          "step": 0.5
+        },
+        {
+          "key": "grain",
+          "label": "Paper grain",
+          "default": 0.1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.18,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "rim",
+          "label": "Rim",
+          "default": 0.35,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        }
+      ],
+      "colors": [
+        {
+          "key": "paper",
+          "label": "Paper",
+          "default": "#efe9dc"
+        },
+        {
+          "key": "c0",
+          "label": "Quiet",
+          "default": "#a9a9a6"
+        },
+        {
+          "key": "c1",
+          "label": "Class 1",
+          "default": "#2e5df0"
+        },
+        {
+          "key": "c2",
+          "label": "Class 2",
+          "default": "#38d9ec"
+        },
+        {
+          "key": "c3",
+          "label": "Class 3",
+          "default": "#22c35c"
+        },
+        {
+          "key": "c4",
+          "label": "Class 4",
+          "default": "#e8322a"
+        },
+        {
+          "key": "c5",
+          "label": "Class 5",
+          "default": "#f5d020"
+        },
+        {
+          "key": "c6",
+          "label": "Peak",
+          "default": "#e030c0"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "curve": 1.4,
+          "density": 1,
+          "dither": 0.12,
+          "hi": 0.82,
+          "lo": 0.12,
+          "sparse": 0.16,
+          "speed": 1,
+          "spin": 0.27,
+          "swirl": 1.5,
+          "twinkle": 3,
+          "warp": 0.5
+        },
+        "speaking": {
+          "curve": 1.3,
+          "density": 1.15,
+          "dither": 0.1,
+          "grain": 0.35,
+          "hi": 0.8,
+          "lo": 0,
+          "sparse": 0.22,
+          "speed": 6.5,
+          "spin": 0.51,
+          "swirl": 2,
+          "twinkle": 5,
+          "warp": 0.45
+        },
+        "thinking": {
+          "curve": 1.7,
+          "density": 0.9,
+          "dither": 0.18,
+          "freq": 5.2,
+          "hi": 0.545,
+          "lo": 0,
+          "sparse": 0.22,
+          "speed": 2.4,
+          "spin": 0.51,
+          "swirl": 4,
+          "twinkle": 12,
+          "warp": 1.06
+        }
+      },
+      "snippet": "import { ShaderOrb, orb27 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb27} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-28",
+      "title": "ORB-28",
+      "export": "orb28",
+      "description": "nested binary grids shuttering on a tumbling bit-sphere",
+      "import": "import { orb28 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Shutter drift",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Tumble rate",
+          "default": 0.15,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Tumble tilt",
+          "default": 0.5,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.1,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gridScale",
+          "label": "Grid scale",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "levels",
+          "label": "Bit depth",
+          "default": 12,
+          "min": 4,
+          "max": 20,
+          "step": 1
+        },
+        {
+          "key": "lineW",
+          "label": "Line width",
+          "default": 2,
+          "min": 0.5,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "shutter",
+          "label": "Shutter",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "gain",
+          "label": "Line gain",
+          "default": 1,
+          "min": 0.05,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "body",
+          "label": "Body glow",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.6,
+          "min": 0,
+          "max": 5,
+          "step": 0.03
+        },
+        {
+          "key": "rimPow",
+          "label": "Rim tightness",
+          "default": 3,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "lineA",
+          "label": "X lines",
+          "default": "#ff5a4d"
+        },
+        {
+          "key": "lineB",
+          "label": "Y lines",
+          "default": "#59d8ff"
+        },
+        {
+          "key": "base",
+          "label": "Body",
+          "default": "#101528"
+        },
+        {
+          "key": "rim",
+          "label": "Rim",
+          "default": "#bcd8ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "body": 0.9,
+          "contrast": 1.2,
+          "gain": 1,
+          "levels": 10,
+          "lineW": 2.5,
+          "rim": 0.6,
+          "rimPow": 5.2,
+          "shutter": 1.02,
+          "speed": 1,
+          "spin": 0.1
+        },
+        "speaking": {
+          "body": 0.27,
+          "contrast": 1.45,
+          "gain": 0.95,
+          "gridScale": 10.3,
+          "levels": 17,
+          "rim": 1.53,
+          "rimPow": 10,
+          "shutter": 1.2,
+          "speed": 3,
+          "spin": 1.1
+        },
+        "thinking": {
+          "body": 0.85,
+          "gain": 1.2,
+          "lineW": 2.9,
+          "rim": 0.7,
+          "shutter": 0.94,
+          "speed": 2.4,
+          "spin": 0.81
+        }
+      },
+      "snippet": "import { ShaderOrb, orb28 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb28} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-29",
+      "title": "ORB-29",
+      "export": "orb29",
+      "description": "an LED tile wall lighting up in flowing blobs, wrapped on the ball",
+      "import": "import { orb29 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "drift",
+          "label": "Drift",
+          "default": 0.45,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "churn",
+          "label": "Churn",
+          "default": 0.5,
+          "min": 0,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "swirl",
+          "label": "Fluidity",
+          "default": 1.2,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "shuffle",
+          "label": "Shuffle",
+          "default": 0.6,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "integrated": true
+        },
+        {
+          "key": "pulse",
+          "label": "Pulse depth",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.1,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "cells",
+          "label": "Tile grid",
+          "default": 48,
+          "min": 16,
+          "max": 160,
+          "step": 2
+        },
+        {
+          "key": "scale",
+          "label": "Blob scale",
+          "default": 1.3,
+          "min": 0.3,
+          "max": 10,
+          "step": 0.1
+        },
+        {
+          "key": "coverage",
+          "label": "Coverage",
+          "default": 0.52,
+          "min": 0,
+          "max": 1.2,
+          "step": 0.01
+        },
+        {
+          "key": "confetti",
+          "label": "Confetti",
+          "default": 0.22,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.6,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "gain",
+          "label": "Panel gain",
+          "default": 1,
+          "min": 0.05,
+          "max": 5,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        }
+      ],
+      "colors": [
+        {
+          "key": "lit",
+          "label": "Lit tile",
+          "default": "#fff2dd"
+        },
+        {
+          "key": "wall",
+          "label": "Wall",
+          "default": "#161616"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "churn": 0.5,
+          "coverage": 0.52,
+          "drift": 0.45,
+          "gain": 1,
+          "pulse": 0,
+          "shuffle": 0.6,
+          "spin": 0.1
+        },
+        "speaking": {
+          "churn": 0.9,
+          "coverage": 0.44,
+          "drift": 0.5,
+          "gain": 1.15,
+          "pulse": 0.55,
+          "shuffle": 1.2,
+          "spin": 0.45
+        },
+        "thinking": {
+          "churn": 1.9,
+          "coverage": 0.42,
+          "drift": 0.1,
+          "gain": 0.95,
+          "pulse": 0,
+          "shuffle": 5,
+          "spin": 0.03
+        }
+      },
+      "snippet": "import { ShaderOrb, orb29 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb29} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-30",
+      "title": "ORB-30",
+      "export": "orb30",
+      "description": "a meadow folding into itself toward a blue vanishing point",
+      "import": "import { orb30 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "fall",
+          "label": "Fall speed",
+          "default": 0.12,
+          "min": 0,
+          "max": 4,
+          "step": 0.01,
+          "integrated": true
+        },
+        {
+          "key": "tilt",
+          "label": "Frame tilt",
+          "default": 0,
+          "min": -1.6,
+          "max": 1.6,
+          "step": 0.01
+        },
+        {
+          "key": "drift",
+          "label": "Weather drift",
+          "default": 0.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Tunnel scale",
+          "default": 4.5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "bulge",
+          "label": "Dome bulge",
+          "default": 0.25,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "ratio",
+          "label": "Frame ratio",
+          "default": 1.8,
+          "min": 1.1,
+          "max": 6,
+          "step": 0.02
+        },
+        {
+          "key": "horizon",
+          "label": "Horizon",
+          "default": 0.14,
+          "min": -0.9,
+          "max": 0.9,
+          "step": 0.01
+        },
+        {
+          "key": "cloudScale",
+          "label": "Cloud scale",
+          "default": 1.6,
+          "min": 0.1,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "cloudCover",
+          "label": "Cloud cover",
+          "default": 0.46,
+          "min": 0.02,
+          "max": 0.98,
+          "step": 0.01
+        },
+        {
+          "key": "streakFreq",
+          "label": "Wall detail",
+          "default": 5,
+          "min": 0.2,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "streakRad",
+          "label": "Smear",
+          "default": 0.5,
+          "min": 0.02,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "water",
+          "label": "Water",
+          "default": 0.7,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "flowerScale",
+          "label": "Flower scale",
+          "default": 44,
+          "min": 2,
+          "max": 120,
+          "step": 1
+        },
+        {
+          "key": "flowerDensity",
+          "label": "Flower density",
+          "default": 0.55,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "flowerSize",
+          "label": "Flower size",
+          "default": 0.26,
+          "min": 0.05,
+          "max": 0.6,
+          "step": 0.01
+        },
+        {
+          "key": "frameShade",
+          "label": "Frame shading",
+          "default": 0.62,
+          "min": 0.2,
+          "max": 1.4,
+          "step": 0.01
+        },
+        {
+          "key": "haze",
+          "label": "Aerial haze",
+          "default": 0.85,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "hazeRange",
+          "label": "Haze reach",
+          "default": 0.09,
+          "min": 0.005,
+          "max": 1.5,
+          "step": 0.005
+        },
+        {
+          "key": "gain",
+          "label": "Brightness",
+          "default": 1.05,
+          "min": 0.05,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.05,
+          "min": 0.15,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.1,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "rim",
+          "label": "Rim sheen",
+          "default": 0.55,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "sky",
+          "label": "Sky",
+          "default": "#4a92e0"
+        },
+        {
+          "key": "cloud",
+          "label": "Cloud",
+          "default": "#f7fbff"
+        },
+        {
+          "key": "canopy",
+          "label": "Canopy",
+          "default": "#12401f"
+        },
+        {
+          "key": "meadow",
+          "label": "Meadow",
+          "default": "#5aa63a"
+        },
+        {
+          "key": "water",
+          "label": "Water",
+          "default": "#156f6a"
+        },
+        {
+          "key": "bloom",
+          "label": "Bloom",
+          "default": "#ff6a3a"
+        },
+        {
+          "key": "sheen",
+          "label": "Sheen",
+          "default": "#cfe6ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "bulge": 0.2,
+          "cloudCover": 0.42,
+          "cloudScale": 1.2,
+          "drift": 0.2,
+          "fall": 0.12,
+          "flowerDensity": 0.27,
+          "flowerScale": 24,
+          "flowerSize": 0.43,
+          "gain": 1.38,
+          "haze": 0.8,
+          "hazeRange": 0.09,
+          "horizon": -0.11,
+          "light": 0.345,
+          "ratio": 3.06,
+          "rim": 0.555,
+          "saturation": 1.56,
+          "streakFreq": 2.9,
+          "streakRad": 0.54,
+          "water": 0
+        },
+        "speaking": {
+          "cloudCover": 0.44,
+          "cloudScale": 3.65,
+          "contrast": 1.45,
+          "drift": 1.54,
+          "fall": 1.47,
+          "flowerDensity": 0.95,
+          "flowerScale": 32,
+          "gain": 1.36,
+          "haze": 0.38,
+          "hazeRange": 0.315,
+          "horizon": 0.03,
+          "light": 0.57,
+          "saturation": 2.32,
+          "scale": 8.7,
+          "streakFreq": 11,
+          "streakRad": 1.48,
+          "tilt": 0.03
+        },
+        "thinking": {
+          "cloudCover": 0.3,
+          "contrast": 1.45,
+          "drift": 0.5,
+          "fall": 0.6,
+          "flowerDensity": 0.28,
+          "gain": 1.42,
+          "haze": 1,
+          "hazeRange": 0.3,
+          "light": 0.96,
+          "saturation": 2
+        }
+      },
+      "snippet": "import { ShaderOrb, orb30 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb30} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-31",
+      "title": "ORB-31",
+      "export": "orb31",
+      "description": "raymarched shell, volumetric godrays",
+      "import": "import { orb31 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Anim speed",
+          "default": 1,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "sweepRate",
+          "label": "Sweep rate",
+          "default": 0.5,
+          "min": 0,
+          "max": 6,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Shell radius",
+          "default": 2.6,
+          "min": 0.4,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "swell",
+          "label": "Input swell",
+          "default": 0.18,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "warp",
+          "label": "Warp divisor",
+          "default": 0.9,
+          "min": 0.3,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "warpFreq",
+          "label": "Warp frequency",
+          "default": 5.25,
+          "min": 0.15,
+          "max": 30,
+          "step": 0.15
+        },
+        {
+          "key": "warpSwing",
+          "label": "Warp swing",
+          "default": 0,
+          "min": 0,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "freqSwing",
+          "label": "Frequency swing",
+          "default": 0,
+          "min": 0,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "smoothSwing",
+          "label": "Softness swing",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.005
+        },
+        {
+          "key": "smoothK",
+          "label": "Blend softness",
+          "default": 0.42,
+          "min": 0.015,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "rayGain",
+          "label": "Godray gain",
+          "default": 0.8,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "rayFalloff",
+          "label": "Godray falloff",
+          "default": 10.5,
+          "min": 0.3,
+          "max": 100,
+          "step": 0.5
+        },
+        {
+          "key": "surfaceLit",
+          "label": "Surface light",
+          "default": 0.105,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "ambient",
+          "label": "Ambient",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 3,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.45,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 12,
+          "min": 1.5,
+          "max": 100,
+          "step": 0.5
+        },
+        {
+          "key": "fov",
+          "label": "Lens",
+          "default": 3.5,
+          "min": 0.3,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "stepScale",
+          "label": "Step safety",
+          "default": 9,
+          "min": 0.3,
+          "max": 30,
+          "step": 0.5
+        },
+        {
+          "key": "maxDist",
+          "label": "Max distance",
+          "default": 22,
+          "min": 3,
+          "max": 100,
+          "step": 1
+        }
+      ],
+      "colors": [],
+      "presets": {
+        "idle": {
+          "alphaGain": 3,
+          "freqSwing": 0,
+          "rayFalloff": 10.5,
+          "rayGain": 0.8,
+          "smoothK": 0.42,
+          "smoothSwing": 0,
+          "speed": 1,
+          "swell": 0.18,
+          "warp": 0.9,
+          "warpFreq": 5.25,
+          "warpSwing": 0
+        },
+        "speaking": {
+          "alphaGain": 1.8,
+          "freqSwing": 4.5,
+          "rayFalloff": 8,
+          "rayGain": 0.52,
+          "smoothK": 0.25,
+          "smoothSwing": 0.25,
+          "speed": 0.9,
+          "sweepRate": 0.8,
+          "swell": 0.66,
+          "warp": 3.75,
+          "warpFreq": 19.5,
+          "warpSwing": 2.25
+        },
+        "thinking": {
+          "alphaGain": 1.8,
+          "freqSwing": 2,
+          "rayFalloff": 8,
+          "rayGain": 0.52,
+          "smoothK": 0.58,
+          "smoothSwing": 0,
+          "speed": 0.9,
+          "sweepRate": 0.5,
+          "swell": 0.66,
+          "warp": 1,
+          "warpFreq": 7,
+          "warpSwing": 0
+        }
+      },
+      "snippet": "import { ShaderOrb, orb31 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb31} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-32",
+      "title": "ORB-32",
+      "export": "orb32",
+      "description": "a galaxy marched as gas and dust inside the ball",
+      "import": "import { orb32 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "spin",
+          "label": "Disc turn",
+          "default": 0.06,
+          "min": 0,
+          "max": 3,
+          "step": 0.01,
+          "integrated": true
+        },
+        {
+          "key": "churn",
+          "label": "Gas churn",
+          "default": 0.25,
+          "min": 0,
+          "max": 5,
+          "step": 0.02,
+          "integrated": true
+        },
+        {
+          "key": "beat",
+          "label": "Core beat",
+          "default": 0.8,
+          "min": 0,
+          "max": 12,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "twinkle",
+          "label": "Twinkle rate",
+          "default": 1.2,
+          "min": 0,
+          "max": 12,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "camDist",
+          "label": "Camera distance",
+          "default": 7,
+          "min": 1,
+          "max": 50,
+          "step": 0.3
+        },
+        {
+          "key": "focal",
+          "label": "Lens",
+          "default": 2.25,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.05
+        },
+        {
+          "key": "envRadius",
+          "label": "Envelope radius",
+          "default": 2.6,
+          "min": 0.15,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "tilt",
+          "label": "Tilt (0 edge-on)",
+          "default": 0.85,
+          "min": 0,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "arms",
+          "label": "Arm count",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1
+        },
+        {
+          "key": "wind",
+          "label": "Arm winding",
+          "default": 3.4,
+          "min": 0,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "ragged",
+          "label": "Arm fray",
+          "default": 3,
+          "min": 0,
+          "max": 12,
+          "step": 0.05
+        },
+        {
+          "key": "armSharp",
+          "label": "Arm sharpness",
+          "default": 2.2,
+          "min": 0.3,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "falloff",
+          "label": "Disc falloff",
+          "default": 1.7,
+          "min": 0.3,
+          "max": 12,
+          "step": 0.05
+        },
+        {
+          "key": "thick",
+          "label": "Disc thickness",
+          "default": 0.035,
+          "min": 0.01,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "bulge",
+          "label": "Core tightness",
+          "default": 40,
+          "min": 2,
+          "max": 200,
+          "step": 1
+        },
+        {
+          "key": "core",
+          "label": "Core density",
+          "default": 5,
+          "min": 0,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "turbScale",
+          "label": "Turbulence scale",
+          "default": 9,
+          "min": 0.5,
+          "max": 30,
+          "step": 0.1
+        },
+        {
+          "key": "threshold",
+          "label": "Clumping",
+          "default": 0.35,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "density",
+          "label": "Gas density",
+          "default": 14,
+          "min": 0.1,
+          "max": 40,
+          "step": 0.1
+        },
+        {
+          "key": "absorb",
+          "label": "Dust absorption",
+          "default": 3.5,
+          "min": 0,
+          "max": 20,
+          "step": 0.1
+        },
+        {
+          "key": "stars",
+          "label": "Stars",
+          "default": 1.2,
+          "min": 0,
+          "max": 10,
+          "step": 0.05
+        },
+        {
+          "key": "starDensity",
+          "label": "Star density",
+          "default": 0.5,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "starScale",
+          "label": "Star scale",
+          "default": 48,
+          "min": 5,
+          "max": 200,
+          "step": 1
+        },
+        {
+          "key": "hueReach",
+          "label": "Hue reach",
+          "default": 0.6,
+          "min": 0.15,
+          "max": 1.5,
+          "step": 0.01
+        },
+        {
+          "key": "pulse",
+          "label": "Beat depth",
+          "default": 0.2,
+          "min": 0,
+          "max": 3,
+          "step": 0.01
+        },
+        {
+          "key": "breathe",
+          "label": "Disc breathing",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "exposure",
+          "label": "Exposure",
+          "default": 1.1,
+          "min": 0.05,
+          "max": 50,
+          "step": 0.05
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1.15,
+          "min": 0.15,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "saturation",
+          "label": "Saturation",
+          "default": 1.35,
+          "min": 0,
+          "max": 4,
+          "step": 0.02
+        },
+        {
+          "key": "alphaGain",
+          "label": "Alpha gain",
+          "default": 2,
+          "min": 0.05,
+          "max": 15,
+          "step": 0.1
+        },
+        {
+          "key": "fill",
+          "label": "Night fill",
+          "default": 0.85,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.35,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "edge",
+          "label": "Edge sharpness",
+          "default": 1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "edgeFade",
+          "label": "Halo falloff",
+          "default": 0.98,
+          "min": 0.1,
+          "max": 0.985,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "tint",
+          "label": "Tint",
+          "default": "#ffffff"
+        },
+        {
+          "key": "core",
+          "label": "Core",
+          "default": "#fff3d6"
+        },
+        {
+          "key": "inner",
+          "label": "Inner arms",
+          "default": "#7fb4ff"
+        },
+        {
+          "key": "outer",
+          "label": "Outer arms",
+          "default": "#c46bff"
+        },
+        {
+          "key": "deep",
+          "label": "Night",
+          "default": "#04050f"
+        },
+        {
+          "key": "rim",
+          "label": "Rim",
+          "default": "#8fb0ff"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "absorb": 3.5,
+          "armSharp": 2.2,
+          "beat": 0.8,
+          "breathe": 0,
+          "churn": 0.25,
+          "contrast": 1.15,
+          "core": 5,
+          "density": 14,
+          "exposure": 1.1,
+          "pulse": 0.2,
+          "ragged": 3,
+          "saturation": 1.35,
+          "spin": 0.06,
+          "stars": 1.2,
+          "thick": 0.035,
+          "threshold": 0.35,
+          "tilt": 0.85,
+          "twinkle": 1.2
+        },
+        "speaking": {
+          "absorb": 1.6,
+          "armSharp": 1.8,
+          "beat": 4.8,
+          "breathe": 0.45,
+          "churn": 0.6,
+          "contrast": 1.05,
+          "core": 12,
+          "density": 18,
+          "exposure": 0.75,
+          "pulse": 1,
+          "ragged": 2,
+          "saturation": 1.6,
+          "spin": 0.2,
+          "stars": 2,
+          "thick": 0.04,
+          "threshold": 0.25,
+          "tilt": 1.3,
+          "twinkle": 2.4
+        },
+        "thinking": {
+          "absorb": 6,
+          "armSharp": 1,
+          "beat": 2.4,
+          "breathe": 0,
+          "churn": 1.6,
+          "contrast": 1.3,
+          "core": 3,
+          "density": 20,
+          "exposure": 1.05,
+          "pulse": 0.25,
+          "ragged": 8,
+          "saturation": 1.2,
+          "spin": 0.45,
+          "stars": 1.8,
+          "thick": 0.07,
+          "threshold": 0.5,
+          "tilt": 1.45,
+          "twinkle": 4.5
+        }
+      },
+      "snippet": "import { ShaderOrb, orb32 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb32} size={300} state=\"idle\" />"
+    },
+    {
+      "slug": "orb-33",
+      "title": "ORB-33",
+      "export": "orb33",
+      "description": "a thermal image, risograph-printed on the ball",
+      "import": "import { orb33 } from \"react-native-shader-orbs\"",
+      "moods": [
+        "idle",
+        "speaking",
+        "thinking"
+      ],
+      "params": [
+        {
+          "key": "speed",
+          "label": "Drift",
+          "default": 0.5,
+          "min": 0.015,
+          "max": 10,
+          "step": 0.05,
+          "integrated": true
+        },
+        {
+          "key": "spin",
+          "label": "Roll",
+          "default": 0.05,
+          "min": 0,
+          "max": 5,
+          "step": 0.03,
+          "integrated": true
+        },
+        {
+          "key": "radius",
+          "label": "Radius",
+          "default": 0.9,
+          "min": 0.15,
+          "max": 3,
+          "step": 0.015
+        },
+        {
+          "key": "scale",
+          "label": "Zoom",
+          "default": 3,
+          "min": 0.3,
+          "max": 8,
+          "step": 0.05
+        },
+        {
+          "key": "freq",
+          "label": "Pool scale",
+          "default": 1.4,
+          "min": 0.2,
+          "max": 6,
+          "step": 0.05
+        },
+        {
+          "key": "warp",
+          "label": "Warp",
+          "default": 0.6,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "lo",
+          "label": "Cold threshold",
+          "default": 0.42,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "hi",
+          "label": "Hot threshold",
+          "default": 0.74,
+          "min": 0,
+          "max": 1,
+          "step": 0.005
+        },
+        {
+          "key": "gain",
+          "label": "Heat gain",
+          "default": 1,
+          "min": 0.1,
+          "max": 6,
+          "step": 0.02
+        },
+        {
+          "key": "jitter",
+          "label": "Heat jitter",
+          "default": 0.015,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.005
+        },
+        {
+          "key": "bands",
+          "label": "Contour bands",
+          "default": 7,
+          "min": 2,
+          "max": 24,
+          "step": 1
+        },
+        {
+          "key": "banding",
+          "label": "Contour strength",
+          "default": 0.85,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "contrast",
+          "label": "Contrast",
+          "default": 1,
+          "min": 0.3,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "dither",
+          "label": "Dither",
+          "default": 0.05,
+          "min": 0,
+          "max": 0.6,
+          "step": 0.005
+        },
+        {
+          "key": "dots",
+          "label": "Screen pitch",
+          "default": 46,
+          "min": 4,
+          "max": 120,
+          "step": 1
+        },
+        {
+          "key": "dotGain",
+          "label": "Dot gain",
+          "default": 1,
+          "min": 0.2,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "dotSoft",
+          "label": "Dot softness",
+          "default": 0.12,
+          "min": 0.01,
+          "max": 0.3,
+          "step": 0.005
+        },
+        {
+          "key": "misregister",
+          "label": "Misregistration",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.02
+        },
+        {
+          "key": "ink",
+          "label": "Ink density",
+          "default": 0.92,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "printMix",
+          "label": "Print mix",
+          "default": 0.28,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "grain",
+          "label": "Paper grain",
+          "default": 0.35,
+          "min": 0,
+          "max": 2,
+          "step": 0.01
+        },
+        {
+          "key": "grainSize",
+          "label": "Grain size",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1
+        },
+        {
+          "key": "light",
+          "label": "Key light",
+          "default": 0.25,
+          "min": 0,
+          "max": 1,
+          "step": 0.01
+        },
+        {
+          "key": "rim",
+          "label": "Rim light",
+          "default": 0.25,
+          "min": 0,
+          "max": 3,
+          "step": 0.015
+        }
+      ],
+      "colors": [
+        {
+          "key": "cold",
+          "label": "Cold",
+          "default": "#0b0a1e"
+        },
+        {
+          "key": "cool",
+          "label": "Cool",
+          "default": "#3b2a9a"
+        },
+        {
+          "key": "warm",
+          "label": "Warm",
+          "default": "#f05a28"
+        },
+        {
+          "key": "hot",
+          "label": "Hot",
+          "default": "#f6b53a"
+        },
+        {
+          "key": "core",
+          "label": "Core",
+          "default": "#fff1e6"
+        },
+        {
+          "key": "paper",
+          "label": "Paper",
+          "default": "#f4ecdf"
+        }
+      ],
+      "presets": {
+        "idle": {
+          "banding": 0.85,
+          "contrast": 1,
+          "gain": 1,
+          "grain": 0.35,
+          "hi": 0.74,
+          "jitter": 0.015,
+          "lo": 0.42,
+          "speed": 0.5,
+          "spin": 0.05,
+          "warp": 0.6
+        },
+        "speaking": {
+          "banding": 0.85,
+          "contrast": 1,
+          "gain": 1,
+          "grain": 0.35,
+          "hi": 0.72,
+          "jitter": 0,
+          "lo": 0.345,
+          "speed": 8.8,
+          "spin": 2.01,
+          "warp": 1.42,
+          "freq": 1.3
+        },
+        "thinking": {
+          "banding": 0.75,
+          "contrast": 1,
+          "gain": 1,
+          "grain": 0.35,
+          "hi": 0.66,
+          "jitter": 0,
+          "lo": 0.3,
+          "speed": 10,
+          "spin": 0.51,
+          "warp": 1.82,
+          "bands": 6,
+          "dots": 42,
+          "freq": 3.1,
+          "scale": 4.6
+        }
+      },
+      "snippet": "import { ShaderOrb, orb33 } from \"react-native-shader-orbs\";\n\n<ShaderOrb orb={orb33} size={300} state=\"idle\" />"
+    }
+  ]
+}
