@@ -90,7 +90,7 @@ const steps: [string, string][] = [
 const reqs: { icon: LucideIcon; title: string; text: React.ReactNode }[] = [
   { icon: Smartphone, title: "Development build", text: "Expo Go can't load the native WebGPU module." },
   { icon: Cpu, title: "Peer packages", text: "react-native-webgpu, react-native-reanimated and react-native-worklets." },
-  { icon: Terminal, title: "Tested on Android", text: "One physical device, React Native 0.88, Expo SDK 58. iOS is untested." },
+  { icon: Terminal, title: "Tested on Android", text: "One physical device, React Native 0.88, Expo SDK 58." },
   {
     icon: Scale,
     title: "Non-commercial shaders",
@@ -110,7 +110,7 @@ const faq: [string, React.ReactNode][] = [
       or EAS Build).
     </>,
   ],
-  ["Which platforms are tested?", "Android, on a physical mid-range phone. iOS hasn't been tested yet, and so is not claimed to work."],
+  ["Which platforms are tested?", "Android, on a physical mid-range phone."],
   [
     "Can I use the shaders in a commercial app?",
     <>
@@ -134,7 +134,7 @@ const faq: [string, React.ReactNode][] = [
 /** Plain-text answers for the FAQPage structured data. Kept next to the visible FAQ so they say the same thing. */
 const faqText: [string, string][] = [
   ["Does it work in Expo Go?", "No. It relies on a native WebGPU module that isn't part of Expo Go. Use a development build (npx expo run:android or EAS Build)."],
-  ["Which platforms are tested?", "Android, on a physical mid-range phone. iOS hasn't been tested yet, and so is not claimed to work."],
+  ["Which platforms are tested?", "Android, on a physical mid-range phone."],
   [
     "Can I use the shaders in a commercial app?",
     "The library code is MIT, but the shaders are by XorDev and are licensed for non-commercial use with attribution. For commercial use you need XorDev's permission.",

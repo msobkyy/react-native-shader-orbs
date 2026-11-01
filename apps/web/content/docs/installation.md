@@ -9,7 +9,7 @@
 | Expo / React Native | A **development build**. Expo Go is not supported. |
 | React Native | 0.81 or newer (the minimum `react-native-webgpu` supports). Tested on 0.88. |
 | Expo SDK | Tested on SDK 58. |
-| Platforms | **Android** tested on a physical device. **iOS untested.** |
+| Platforms | **Android** tested on a physical device. |
 | Peer packages | `react-native-webgpu`, `react-native-reanimated`, `react-native-worklets` |
 
 ## Install

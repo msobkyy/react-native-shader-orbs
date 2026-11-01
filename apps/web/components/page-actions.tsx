@@ -89,13 +89,13 @@ export function PageActions({ mdUrl, pageUrl, prev, next }: { mdUrl: string; pag
   return (
     <div className="page-actions">
       <div className="page-actions-split">
-        <Button type="button" variant="outline" size="default" onClick={copyPage}>
+        <Button type="button" variant="ghost" size="default" className="page-actions-main" onClick={copyPage}>
           {copied === "page" ? <CheckIcon data-icon="inline-start" /> : <CopyIcon data-icon="inline-start" />}
           {copied === "page" ? "Copied" : "Copy Page"}
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button type="button" variant="outline" size="icon" aria-label="More ways to use this page">
+            <Button type="button" variant="ghost" size="icon" className="page-actions-more" aria-label="More ways to use this page">
               <ChevronDownIcon />
             </Button>
           </DropdownMenuTrigger>

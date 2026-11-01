@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { DocsMenu } from "@/components/docs-menu";
+import { DocsTransition } from "@/components/docs-transition";
 import { SideNav, type NavGroup } from "@/components/side-nav";
 import { orbMeta } from "@/lib/orbs";
 import { docGroups } from "@/lib/site";
@@ -25,13 +26,16 @@ const groups: NavGroup[] = [
   ...docGroups.filter((g) => g.after).map(toGroup),
 ];
 
+// Sidebar order, used to tell whether a navigation went forward or back.
+const order = groups.flatMap((g) => g.items.map((i) => i.href));
+
 export default function DocsLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <DocsMenu groups={groups} />
       <div className="docs-layout">
         <SideNav groups={groups} />
-        {children}
+        <DocsTransition order={order}>{children}</DocsTransition>
       </div>
     </>
   );

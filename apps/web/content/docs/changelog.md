@@ -46,7 +46,7 @@ The first release, published to npm on 2026-11-01 under both the `latest` and `n
   step, then rendered with raw WebGPU through `react-native-webgpu`.
 - `ShaderOrb` with `state`, `params`, `colors`, `volumes`, per-mood presets, and spring easing on every value.
 - `onReady` and `onStats` callbacks.
-- Tested on one Android phone. iOS is untested.
+- Tested on one Android phone.
 - Expo Go is not supported; a development build is required.
 
 ### Known gaps

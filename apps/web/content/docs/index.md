@@ -25,7 +25,7 @@ import { ShaderOrb, orb01 } from "{{pkg}}";
 > **Development build required.** The orbs render through a native WebGPU module that Expo Go doesn't include. You'll
 > use a development build (`npx expo run:android`, or EAS Build).
 
-- It has been tested on **Android**, on one physical phone. **iOS has not been tested.**
+- It has been tested on **Android**, on one physical phone.
 - The shaders are by [XorDev](https://x.com/XorDev) and are licensed for **non-commercial use with attribution**. The
   library code is MIT. Read [Licensing and credits](/docs/licensing/) before shipping.
 - These are ray-marched shaders. They look expensive because they are; see [Performance](/docs/performance/).
