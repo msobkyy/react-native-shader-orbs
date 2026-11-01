@@ -1420,7 +1420,10 @@
   .landing::before {
     content: "";
     position: absolute;
-    inset: -4rem -50vw auto;
+    top: -4rem;
+    left: 50%;
+    width: 100vw;
+    translate: -50% 0;
     height: 46rem;
     background:
       radial-gradient(40rem 22rem at 78% 8%, color-mix(in oklab, var(--brand) 22%, transparent), transparent 70%),
@@ -1431,7 +1434,10 @@
   .landing::after {
     content: "";
     position: absolute;
-    inset: -4rem -50vw auto;
+    top: -4rem;
+    left: 50%;
+    width: 100vw;
+    translate: -50% 0;
     height: 38rem;
     background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 3.5rem 3.5rem;
@@ -1660,4 +1666,10 @@
   .reqgrid {
     grid-template-columns: 1fr;
   }
+}
+
+/* The full-bleed hero glow must never create a horizontal scrollbar. */
+html,
+body {
+  overflow-x: clip;
 }
