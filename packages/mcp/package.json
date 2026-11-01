@@ -1,6 +1,6 @@
 {
   "name": "react-native-shader-orbs-mcp",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "MCP server for react-native-shader-orbs: look up orbs, check parameters against their real ranges, and write correct <ShaderOrb /> code.",
   "license": "MIT",
   "type": "module",
