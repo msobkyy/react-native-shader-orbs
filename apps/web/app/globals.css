@@ -1847,3 +1847,50 @@ body {
     animation: none !important;
   }
 }
+
+/* The orbs group: a faded preview of the first links, then a toggle for the rest. */
+@layer components {
+  .side-fold-body {
+    overflow: hidden;
+    max-height: 7.4rem;
+    -webkit-mask-image: linear-gradient(to bottom, #000 38%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 38%, transparent 100%);
+    transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .side-fold.is-open .side-fold-body {
+    max-height: 80rem;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .side-fold-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin: 0.2rem 0 0 0.7rem;
+    padding: 0.25rem 0.1rem;
+    color: var(--muted-foreground);
+    font-size: 0.8rem;
+    font-weight: 550;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    transition: color 0.15s;
+  }
+  .side-fold-toggle:hover {
+    color: var(--foreground);
+  }
+  .side-fold-toggle svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    transition: transform 0.25s;
+  }
+  .side-fold.is-open .side-fold-toggle svg {
+    transform: rotate(180deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .side-fold-body,
+  .side-fold-toggle svg {
+    transition: none;
+  }
+}
