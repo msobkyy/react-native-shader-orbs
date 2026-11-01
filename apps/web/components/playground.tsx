@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { PauseIcon, PlayIcon, RotateCcwIcon } from "lucide-react";
 import { useCallback, useEffect, useReducer, useRef, useState, type CSSProperties } from "react";
 import type { OrbValues } from "@orbs/orbShader";
@@ -74,9 +75,15 @@ export function Playground({ orbs }: { orbs: OrbMeta[] }) {
     [values, drafts, apply]
   );
 
-  // Arrive from an orb page: ?orb=orb-05&state=speaking. Read after mount, so the server HTML stays the default.
+  // Arrive from an orb page: ?orb=orb-05&state=speaking. useSearchParams, not window.location: on a client-side
+  // navigation Next updates the address bar after this component has mounted, so window.location is still stale.
+  const search = useSearchParams().toString();
+  const written = useRef("");
   useEffect(() => {
-    const q = new URLSearchParams(window.location.search);
+    if (search === written.current) {
+      return; // our own URL update below, not an arrival
+    }
+    const q = new URLSearchParams(search);
     const orb = q.get("orb");
     const s = q.get("state") as OrbState | null;
     if (orb && orbs.some((o) => o.slug === orb)) {
@@ -85,11 +92,16 @@ export function Playground({ orbs }: { orbs: OrbMeta[] }) {
     if (s && (ORB_STATES as readonly string[]).includes(s)) {
       apply(s);
     }
-  }, [orbs, apply]);
+  }, [search, orbs, apply]);
 
   // Keep the URL shareable as the choice changes.
   useEffect(() => {
-    window.history.replaceState(null, "", `?orb=${slug}&state=${state}`);
+    const next = `orb=${slug}&state=${state}`;
+    if (new URLSearchParams(window.location.search).toString() === next) {
+      return;
+    }
+    written.current = next;
+    window.history.replaceState(null, "", `?${next}`);
   }, [slug, state]);
 
   const reset = () => {

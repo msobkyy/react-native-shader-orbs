@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Playground } from "@/components/playground";
 import { orbMeta } from "@/lib/orbs";
 import { pageMeta } from "@/lib/seo";
@@ -10,5 +11,10 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function PlaygroundPage() {
-  return <Playground orbs={orbMeta} />;
+  // useSearchParams needs a Suspense boundary in a static export.
+  return (
+    <Suspense>
+      <Playground orbs={orbMeta} />
+    </Suspense>
+  );
 }
