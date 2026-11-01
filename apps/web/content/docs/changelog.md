@@ -4,6 +4,17 @@ Everything that has been added so far, grouped by area.
 
 > `{{pkg}}` is published as an **alpha**, so expect the API to change.
 
+## 0.1.0-alpha.2
+
+Package metadata and agent files. No change to the orbs or the component.
+
+- npm page: a rewritten README, 17 keywords, and links to the docs and the repository.
+- AI agents: `agent/INSTRUCTIONS.md`, a per-orb `agent/catalog.json` and a Claude Code skill ship inside the package. `npx react-native-shader-orbs-mcp init` sets up MCP config, the skill and an `AGENTS.md` block.
+
+## 0.1.0-alpha.1
+
+README and keywords only. Superseded by alpha.2, which adds the docs and repository links.
+
 ## 0.1.0-alpha.0
 
 The first release, published to npm on 2026-11-01 under both the `latest` and `next` tags.

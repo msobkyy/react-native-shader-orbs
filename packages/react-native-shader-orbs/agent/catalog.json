@@ -1,6 +1,6 @@
 {
   "package": "react-native-shader-orbs",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "note": "Generated from the orb sources. Parameter and color keys differ per orb: never guess them. Values are clamped to [min, max].",
   "license": {
     "library": "MIT",
