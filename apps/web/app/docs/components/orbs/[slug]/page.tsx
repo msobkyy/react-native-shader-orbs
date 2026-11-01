@@ -10,8 +10,10 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { exportName, getOrb, num, orbs } from "@/lib/orbs";
+import { PageActions } from "@/components/page-actions";
+import { mdUrl, orbMdName } from "@/lib/page-markdown";
 import { pageMeta } from "@/lib/seo";
-import { install, peers, site } from "@/lib/site";
+import { abs, install, peers, site } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -83,7 +85,15 @@ export default async function OrbPage({ params }: Props) {
           <p className="crumbs">
             <Link href="/docs/components/orbs/">Orbs</Link> / {orb.title}
           </p>
-          <h1>{orb.title}</h1>
+          <header className="doc-head">
+            <h1>{orb.title}</h1>
+            <PageActions
+              mdUrl={mdUrl(orbMdName(orb.slug))}
+              pageUrl={abs(`/docs/components/orbs/${orb.slug}/`)}
+              prev={prev && { href: `/docs/components/orbs/${prev.slug}/`, title: prev.title }}
+              next={next && { href: `/docs/components/orbs/${next.slug}/`, title: next.title }}
+            />
+          </header>
           <p className="lead">{orb.note}</p>
 
           <OrbPreview slug={orb.slug} />

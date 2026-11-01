@@ -41,7 +41,7 @@ export const buildLlmsTxt = () => {
   return lines.join("\n");
 };
 
-const orbDetail = (o: ReturnType<typeof registryOrbs>[number]) =>
+export const orbDetail = (o: ReturnType<typeof registryOrbs>[number]) =>
   [
     `### ${o.title}`,
     "",

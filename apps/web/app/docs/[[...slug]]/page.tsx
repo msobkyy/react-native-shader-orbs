@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DocPager } from "@/components/doc-pager";
+import { PageActions } from "@/components/page-actions";
 import { Toc } from "@/components/toc";
+import { docMdName, mdUrl } from "@/lib/page-markdown";
 import { renderDoc } from "@/lib/markdown";
 import { pageMeta } from "@/lib/seo";
 import { abs, allDocs, site } from "@/lib/site";
@@ -36,6 +38,10 @@ export default async function DocPage({ params }: Props) {
   const { html, toc } = renderDoc(doc.file);
   const prev = allDocs[i - 1];
   const next = allDocs[i + 1];
+  // The page title sits in a header beside the page actions, so take the first <h1> out of the body.
+  const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>\n?/);
+  const title = h1 ? h1[1].replace(/<a class="anchor"[\s\S]*?<\/a>/, "") : doc.title;
+  const body = h1 ? html.replace(h1[0], "") : html;
 
   const crumbs = [
     { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
@@ -61,7 +67,16 @@ export default async function DocPage({ params }: Props) {
             },
           ]}
         />
-        <article dangerouslySetInnerHTML={{ __html: html }} />
+        <header className="doc-head">
+          <h1 dangerouslySetInnerHTML={{ __html: title }} />
+          <PageActions
+            mdUrl={mdUrl(docMdName(doc.slug))}
+            pageUrl={abs(href(doc.slug))}
+            prev={prev && { href: href(prev.slug), title: prev.title }}
+            next={next && { href: href(next.slug), title: next.title }}
+          />
+        </header>
+        <article dangerouslySetInnerHTML={{ __html: body }} />
         <DocPager
           prev={prev && { href: href(prev.slug), title: prev.title }}
           next={next && { href: href(next.slug), title: next.title }}

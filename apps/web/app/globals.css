@@ -1680,3 +1680,109 @@ html,
 body {
   overflow-x: clip;
 }
+
+/* ------------------------------------- docs: page header and reading style ------------------------------------- */
+
+@layer components {
+  /* Title on the left, page actions on the right; the first paragraph under it reads as the subtitle. */
+  .doc-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .doc-head h1 {
+    margin: 0;
+    min-width: 0;
+  }
+  .doc > article > p:first-child,
+  .doc > article > .lead:first-child {
+    font-size: 1.12rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+    max-width: 42rem;
+    margin: 0.7rem 0 0;
+  }
+  .doc > article > p:first-child code {
+    font-size: 0.82em;
+  }
+  .doc-head + .lead {
+    font-size: 1.12rem;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+    max-width: 42rem;
+    margin: 0.7rem 0 0;
+  }
+
+  .page-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.35rem;
+  }
+  .page-actions-split {
+    display: flex;
+  }
+  .page-actions-split > button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .page-actions-split > button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left-width: 0;
+  }
+  .page-actions .size-8,
+  .page-actions [data-slot="button"][class*="size-8"] {
+    background: transparent;
+  }
+
+  /* Links in the text: underlined, quiet until hovered. Navigation and buttons keep their own styles. */
+  .doc article a:not(.anchor):not([data-slot]) {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--foreground) 32%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.15s, color 0.15s;
+  }
+  .doc article a:not(.anchor):not([data-slot]):hover {
+    color: var(--brand);
+    text-decoration-color: var(--brand);
+  }
+
+  /* Calmer reading column. */
+  .doc {
+    --doc-measure: 46rem;
+  }
+  .doc article > :not(.table-card):not(.code):not(.orb-preview) {
+    max-width: var(--doc-measure);
+  }
+  .doc h2 {
+    letter-spacing: -0.02em;
+  }
+}
+@media (max-width: 560px) {
+  .page-actions {
+    width: 100%;
+  }
+}
+
+/* Links that are really buttons or menu rows keep the control's own text color, not the link color. */
+@layer components {
+  a[data-slot="button"]:not([class*="text-primary-foreground"]),
+  a[data-slot="dropdown-menu-item"] {
+    color: inherit;
+  }
+  a[data-slot="button"]:hover,
+  a[data-slot="dropdown-menu-item"]:hover {
+    text-decoration: none;
+  }
+}
+@layer components {
+  .page-actions a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

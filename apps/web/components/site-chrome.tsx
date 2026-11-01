@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildSearchIndex } from "@/lib/search";
 import { abs, site } from "@/lib/site";
+import { GithubLink } from "./github-link";
 import { MobileMenu } from "./mobile-menu";
 import { ResourcesMenu, type ResourceLink } from "./resources-menu";
 import { SearchDialog } from "./search-dialog";
@@ -47,6 +48,7 @@ export function SiteNav() {
               { title: "Orb catalog (registry.json)", href: abs("/r/registry.json") },
             ]}
           />
+          <GithubLink />
           <ThemeToggle />
         </div>
       </header>
