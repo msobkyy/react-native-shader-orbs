@@ -772,6 +772,21 @@
     top: 0.4rem;
     right: 0.4rem;
   }
+  /* The Markdown code blocks use a bare <button>; give it the same quiet look as the React one. */
+  .code button.copy-code:not([data-slot]) {
+    font: 500 0.72rem/1 var(--font-sans);
+    color: oklch(0.78 0.01 270);
+    background: oklch(1 0 0 / 7%);
+    border: 1px solid oklch(1 0 0 / 10%);
+    border-radius: 0.45rem;
+    padding: 0.38rem 0.6rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .code button.copy-code:not([data-slot]):hover {
+    background: oklch(1 0 0 / 14%);
+    color: oklch(0.97 0 0);
+  }
   .hljs-keyword,
   .hljs-selector-tag,
   .hljs-literal {
@@ -903,9 +918,7 @@
   .doc h2 {
     font-size: 1.55rem;
     font-weight: 650;
-    margin: 3rem 0 0.8rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--border);
+    margin: 2.8rem 0 0.7rem;
     scroll-margin-top: 5.5rem;
   }
   .doc h3 {
@@ -940,10 +953,9 @@
     color: var(--muted-foreground);
   }
   .doc :not(pre) > code {
-    background: var(--muted);
-    border: 1px solid var(--border);
-    padding: 0.1em 0.4em;
-    border-radius: 0.4rem;
+    background: color-mix(in oklab, var(--foreground) 7%, transparent);
+    padding: 0.12em 0.38em;
+    border-radius: 0.35rem;
     font-size: 0.86em;
   }
   .doc .anchor {
@@ -973,16 +985,15 @@
     color: var(--muted-foreground);
   }
 
+  /* A note is a quiet rule beside the text, not a box. */
   .callout {
-    margin: 1.2rem 0;
-    padding: 0.1rem 1.1rem;
-    border: 1px solid color-mix(in oklab, var(--brand) 28%, var(--border));
-    border-left: 3px solid var(--brand);
-    background: var(--brand-soft);
-    border-radius: var(--radius-lg);
+    margin: 1.4rem 0;
+    padding: 0.05rem 0 0.05rem 1.1rem;
+    border-left: 2px solid color-mix(in oklab, var(--brand) 70%, var(--border));
   }
   .callout p {
     color: var(--foreground);
+    margin: 0.5rem 0;
   }
 
   .doc .table-card {
@@ -996,24 +1007,24 @@
   .doc .table-card th,
   .doc .table-card td {
     text-align: left;
-    padding: 0.6rem 0.9rem;
+    padding: 0.6rem 1.2rem 0.6rem 0;
     border-bottom: 1px solid var(--border);
     vertical-align: top;
   }
   .doc .table-card th {
     color: var(--muted-foreground);
     font-weight: 600;
-    background: var(--muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom-color: color-mix(in oklab, var(--foreground) 22%, var(--border));
     white-space: nowrap;
   }
   .doc .table-card tr:last-child td {
     border-bottom: 0;
   }
   .table-card {
-    margin: 1rem 0;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    background: var(--card);
+    margin: 1.2rem 0;
     overflow: hidden;
   }
   .dot {
@@ -1068,7 +1079,6 @@
     padding: 0.9rem 1.1rem;
     color: var(--foreground);
     font-weight: 600;
-    background: var(--card);
     transition: border-color 0.2s;
   }
   .pager a:hover {
