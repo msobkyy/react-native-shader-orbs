@@ -46,6 +46,11 @@ export interface ShaderOrbProps extends OrbValues {
   pressScale?: number;
   /** Called when the first frame is on screen, e.g. to hide a placeholder. */
   onReady?: () => void;
+  /**
+   * Called if the orb can't start (no WebGPU adapter, a shader that fails to compile). The orb stays blank.
+   * Without it the error is logged once with console.warn.
+   */
+  onError?: (error: Error) => void;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -67,6 +72,7 @@ export const ShaderOrb = ({
   maxFps = 60,
   onStats,
   onReady,
+  onError,
   live,
   interactive = false,
   pressScale = 1.08,
@@ -145,8 +151,10 @@ export const ShaderOrb = ({
   const scale = Math.min(1, Math.max(0.2, fixed ?? autoScale));
 
   const auto = useRef({ bad: 0, good: 0, warmup: 3, ceiling: 1 });
-  const cb = useRef({ onStats, onReady, maxFps, scale, fixed });
-  cb.current = { onStats, onReady, maxFps, scale, fixed };
+  const cb = useRef({ onStats, onReady, onError, maxFps, scale, fixed });
+  cb.current = { onStats, onReady, onError, maxFps, scale, fixed };
+  // Bumped when the GPU device is lost, so the renderer is rebuilt on a fresh one.
+  const [gpuEpoch, setGpuEpoch] = useState(0);
 
   const onFps = useCallback((fps: number) => {
     const { onStats: report, maxFps: cap, scale: s, fixed: pinned } = cb.current;
@@ -194,17 +202,38 @@ export const ShaderOrb = ({
       context,
       shader,
       () => ({ width: native.width, height: native.height }),
-      { maxFps: cb.current.maxFps, onFps, onFirstFrame: () => cb.current.onReady?.() }
-    ).then((r) => {
-      if (cancelled) {
-        r.destroy();
-        return;
+      {
+        maxFps: cb.current.maxFps,
+        onFps,
+        onFirstFrame: () => cb.current.onReady?.(),
+        onLost: () => {
+          if (!cancelled) {
+            setGpuEpoch((e) => e + 1);
+          }
+        },
       }
-      rendererRef.current = r;
-      if (!pausedRef.current) {
-        r.start();
-      }
-    });
+    )
+      .then((r) => {
+        if (cancelled) {
+          r.destroy();
+          return;
+        }
+        rendererRef.current = r;
+        if (!pausedRef.current) {
+          r.start();
+        }
+      })
+      .catch((error: unknown) => {
+        if (cancelled) {
+          return;
+        }
+        const err = error instanceof Error ? error : new Error(String(error));
+        if (cb.current.onError) {
+          cb.current.onError(err);
+        } else {
+          console.warn(`react-native-shader-orbs: the orb could not start: ${err.message}`);
+        }
+      });
 
     const sub = AppState.addEventListener("change", (s) => {
       if (s === "active" && !pausedRef.current) {
@@ -221,7 +250,7 @@ export const ShaderOrb = ({
       rendererRef.current = null;
     };
     // `scale` remounts the canvas (see `key` below), so the surface is re-acquired here.
-  }, [ref, shader, onFps, scale]);
+  }, [ref, shader, onFps, scale, gpuEpoch]);
 
   useEffect(() => {
     if (paused) {

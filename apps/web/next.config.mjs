@@ -15,6 +15,7 @@ export default {
   trailingSlash: true,
   basePath: base || undefined,
   images: { unoptimized: true },
+  env: { NEXT_PUBLIC_BASE_PATH: base },
   // Allow importing the library sources from outside this app's directory.
   turbopack: { root: monorepoRoot },
   outputFileTracingRoot: monorepoRoot,

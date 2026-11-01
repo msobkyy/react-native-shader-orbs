@@ -169,6 +169,7 @@ All 33 orbs. "Params" and "Colors" are how many you can pass through `params` an
 | `paused` | `boolean` | `false` | Stop drawing and keep the last frame. |
 | `live` | `() => OrbValues` | | Read every frame instead of the value props. See below. |
 | `onReady` | `() => void` | | Called once, after the first frame is on screen. |
+| `onError` | `(error: Error) => void` | | Called if the orb can't start (no WebGPU adapter, a shader that fails to compile). It stays blank. Without it, the error is logged once. |
 | `onStats` | `({ fps, scale }) => void` | | About once a second. |
 | `style` | `StyleProp<ViewStyle>` | | Style for the wrapping view. |
 

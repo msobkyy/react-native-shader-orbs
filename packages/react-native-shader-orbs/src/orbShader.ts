@@ -82,7 +82,9 @@ export const createOrbShader = (
   const paramClock = new Float32Array(def.params.length);
   const colorCur = new Float32Array(def.colors.length * 3);
   const colorVel = new Float32Array(def.colors.length * 3);
-  const colorTarget = new Float32Array(3);
+  // Parsed target colors, re-parsed only when a color string actually changes (not 60 times a second).
+  const colorTarget = new Float32Array(def.colors.length * 3);
+  const colorHex: (string | undefined)[] = new Array(def.colors.length);
   const slot = (name: string) => def.offsets[name].offset;
   // Resolved once: building `p_${key}` strings every frame would allocate 60 times a second.
   const paramSlot = def.params.map((p) => slot(`p_${p.key}`));
@@ -182,9 +184,13 @@ export const createOrbShader = (
       const stateColor = live.stateColors?.[state] ?? def.stateColors?.[state];
       for (let i = 0; i < def.colors.length; i += 1) {
         const c = def.colors[i];
-        writeHex(live.colors?.[c.key] ?? stateColor?.[c.key] ?? c.default, colorTarget, 0);
+        const hex = live.colors?.[c.key] ?? stateColor?.[c.key] ?? c.default;
+        if (hex !== colorHex[i]) {
+          colorHex[i] = hex;
+          writeHex(hex, colorTarget, i * 3);
+        }
         for (let ch = 0; ch < 3; ch += 1) {
-          springStep(colorCur[i * 3 + ch], colorVel[i * 3 + ch], colorTarget[ch], dt);
+          springStep(colorCur[i * 3 + ch], colorVel[i * 3 + ch], colorTarget[i * 3 + ch], dt);
           colorCur[i * 3 + ch] = spring.x;
           colorVel[i * 3 + ch] = spring.v;
           f32[colorSlot[i] + ch] = spring.x;

@@ -12,6 +12,8 @@ export interface OrbRendererOptions {
   onFps?: (fps: number) => void;
   /** Called once, after the first frame has been presented. */
   onFirstFrame?: () => void;
+  /** The GPU device was lost (driver reset, backgrounding). Drawing has stopped; create a new renderer to recover. */
+  onLost?: () => void;
 }
 
 export interface OrbRenderer {
@@ -191,6 +193,15 @@ export const createOrbRenderer = async (
     cancelAnimationFrame(raf);
   };
 
+  // A lost device would make every frame throw; stop drawing and let the owner build a new renderer.
+  let destroyed = false;
+  device.lost.then(() => {
+    halt();
+    if (!destroyed) {
+      options.onLost?.();
+    }
+  });
+
   return {
     start: () => {
       if (!running) {
@@ -206,6 +217,7 @@ export const createOrbRenderer = async (
       interval = 1000 / Math.max(1, fps);
     },
     destroy: () => {
+      destroyed = true;
       halt();
       uniform.destroy();
     },

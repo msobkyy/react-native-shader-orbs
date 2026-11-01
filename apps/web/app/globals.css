@@ -1894,3 +1894,9 @@ body {
     transition: none;
   }
 }
+
+@layer components {
+  .brand {
+    white-space: nowrap;
+  }
+}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { buildSearchIndex } from "@/lib/search";
 import { abs, site } from "@/lib/site";
 import { GithubLink } from "./github-link";
 import { MobileMenu } from "./mobile-menu";
@@ -42,7 +41,6 @@ export function SiteNav() {
           <ResourcesMenu items={resources} />
           <span className="nav-spacer" />
           <SearchDialog
-            entries={buildSearchIndex()}
             files={[
               { title: "llms.txt", href: abs("/llms.txt") },
               { title: "Orb catalog (registry.json)", href: abs("/r/registry.json") },
@@ -68,7 +66,7 @@ export function SiteFooter() {
         <div>
           <strong>{site.name}</strong>
           <p>
-            Library code is MIT. The shaders are by <a href="https://x.com/XorDev">XorDev</a>, used with permission, for
+            Library code is MIT. The shaders are by <a href="https://x.com/XorDev">XorDev</a>, licensed for
             non-commercial use with attribution. See <Link href="/docs/licensing/">Licensing and credits</Link>.
           </p>
           <p>

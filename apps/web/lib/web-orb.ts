@@ -160,12 +160,31 @@ export const mountOrb = async (
   let pausedAt = 0;
   let pausedTotal = 0;
 
+  // The loop sleeps (stops scheduling frames) while there is nothing to draw: offscreen, paused, a hidden tab, a
+  // frozen thumbnail or a lost device. `wake()` restarts it when that changes. An idle orb costs no timer wakeups.
+  let pending = false;
+  let lost = false;
+  const schedule = () => {
+    if (!pending && !destroyed && !frozen && !lost) {
+      pending = true;
+      raf = requestAnimationFrame(frame);
+    }
+  };
+  const wake = () => {
+    lastRender = 0;
+    schedule();
+  };
+
   const frame = (now: number) => {
-    if (destroyed || frozen) {
+    pending = false;
+    if (destroyed || frozen || lost) {
       return;
     }
-    raf = requestAnimationFrame(frame);
-    if (!visible || paused || document.hidden || now - lastRender < interval - 2) {
+    if (!visible || paused || document.hidden) {
+      return;
+    }
+    schedule();
+    if (now - lastRender < interval - 2) {
       return;
     }
     lastRender = now;
@@ -200,13 +219,24 @@ export const mountOrb = async (
       frozen = true;
     }
   };
-  raf = requestAnimationFrame(frame);
+  schedule();
 
-  // Offscreen orbs cost nothing.
+  // Offscreen orbs cost nothing: the loop sleeps and wakes when they scroll back in.
   const io = new IntersectionObserver(([entry]) => {
+    const was = visible;
     visible = entry.isIntersecting;
+    if (visible && !was) {
+      wake();
+    }
   });
   io.observe(canvas);
+  document.addEventListener("visibilitychange", wake);
+
+  // A lost device would make every frame throw; stop drawing.
+  device.lost.then(() => {
+    lost = true;
+    cancelAnimationFrame(raf);
+  });
 
   // Touch: a quick press is a tap (pulse); holding swells the orb.
   let downAt = 0;
@@ -241,9 +271,9 @@ export const mountOrb = async (
       frozen = next;
       if (next) {
         cancelAnimationFrame(raf);
+        pending = false;
       } else {
-        lastRender = 0;
-        raf = requestAnimationFrame(frame);
+        wake();
       }
     },
     setPaused: (next) => {
@@ -253,9 +283,12 @@ export const mountOrb = async (
       paused = next;
       if (next) {
         pausedAt = performance.now();
-      } else if (pausedAt) {
-        pausedTotal += performance.now() - pausedAt;
-        pausedAt = 0;
+      } else {
+        if (pausedAt) {
+          pausedTotal += performance.now() - pausedAt;
+          pausedAt = 0;
+        }
+        wake();
       }
     },
     destroy: () => {
@@ -263,6 +296,7 @@ export const mountOrb = async (
       cancelAnimationFrame(raf);
       observer.disconnect();
       io.disconnect();
+      document.removeEventListener("visibilitychange", wake);
       canvas.removeEventListener("pointerdown", down);
       canvas.removeEventListener("pointerup", onUp);
       canvas.removeEventListener("pointercancel", onCancel);

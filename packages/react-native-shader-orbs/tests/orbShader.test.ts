@@ -104,6 +104,19 @@ describe("createOrbShader: colors", () => {
     expect([r, g, b].map((n) => Math.round(n))).toEqual([0, 1, 0]);
   });
 
+  it("follows a color that changes while it runs (the parsed color is cached, not frozen)", () => {
+    const live: OrbValues = { colors: { tint: "#ff0000" } };
+    const shader = createOrbShader(orb01, () => live);
+    const f32 = new Float32Array(orb01.uniformSize / 4);
+    for (let i = 0; i <= 360; i += 1) shader.write(f32, i / 60, 800, 600);
+    expect(tint(f32)[0]).toBeCloseTo(1, 1);
+
+    live.colors = { tint: "#0000ff" };
+    for (let i = 361; i <= 720; i += 1) shader.write(f32, i / 60, 800, 600);
+    const [r, g, b] = tint(f32);
+    expect([r, g, b].map((n) => Math.round(n))).toEqual([0, 0, 1]);
+  });
+
   it("falls back to white for an invalid color", () => {
     const [r, g, b] = tint(run(orb01, { colors: { tint: "not-a-color" } }, 6).f32);
     expect([r, g, b].map((n) => Math.round(n * 10) / 10)).toEqual([1, 1, 1]);

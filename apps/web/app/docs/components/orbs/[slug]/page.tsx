@@ -47,6 +47,7 @@ const componentProps: [string, string, string, string][] = [
   ["maxFps", "number", "60", "Frame cap."],
   ["paused", "boolean", "false", "Stops drawing and keeps the last frame."],
   ["onReady", "() => void", "", "Called once the first frame is on screen."],
+  ["onError", "(error: Error) => void", "", "Called if the orb can't start. Without it the error is logged once."],
 ];
 
 export default async function OrbPage({ params }: Props) {
@@ -239,7 +240,7 @@ export default async function OrbPage({ params }: Props) {
 
           <h2 id="credits">Credits</h2>
           <p>
-            Based on original work by <a href="https://x.com/XorDev">XorDev</a>, used with permission. The shader is
+            Based on original work by <a href="https://x.com/XorDev">XorDev</a>, via shadercn. The shader is
             licensed for <strong>non-commercial use with attribution</strong>; see{" "}
             <Link href="/docs/licensing/">Licensing and credits</Link>.
           </p>

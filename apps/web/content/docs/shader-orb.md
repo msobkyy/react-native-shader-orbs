@@ -52,6 +52,7 @@ See [Touch interaction](/docs/interaction/).
 | Prop | Type | |
 |---|---|---|
 | `onReady` | `() => void` | Once, after the first frame is on screen. Use it to hide a placeholder. |
+| `onError` | `(error: Error) => void` | If the orb can't start (no WebGPU adapter, a shader that fails to compile). It stays blank. Without it, the error is logged once with `console.warn`. |
 | `onStats` | `({ fps, scale }) => void` | About once a second: the achieved frame rate and the current render scale. |
 
 ## Behavior notes

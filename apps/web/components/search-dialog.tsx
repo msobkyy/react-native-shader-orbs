@@ -3,7 +3,7 @@
 import { FileJsonIcon, FileTextIcon, HashIcon, MonitorIcon, MoonIcon, PlayIcon, SearchIcon, SunIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -21,8 +21,28 @@ import type { SearchEntry } from "@/lib/search";
 const groupIcon = { Pages: FileTextIcon, Sections: HashIcon, Orbs: null } as const;
 
 /** The ⌘K palette: pages, sections, orbs (also by parameter name), and a few actions. */
-export function SearchDialog({ entries, files = [] }: { entries: SearchEntry[]; files?: { title: string; href: string }[] }) {
+export function SearchDialog({ files = [] }: { files?: { title: string; href: string }[] }) {
   const [open, setOpen] = useState(false);
+  // The index is a static file, fetched once on first use (hover, focus or open) rather than shipped inside every page.
+  const [entries, setEntries] = useState<SearchEntry[]>([]);
+  const requested = useRef(false);
+  const load = useCallback(() => {
+    if (requested.current) {
+      return;
+    }
+    requested.current = true;
+    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/search.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then(setEntries)
+      .catch(() => {
+        requested.current = false; // try again next time
+      });
+  }, []);
+  useEffect(() => {
+    if (open) {
+      load();
+    }
+  }, [open, load]);
   const router = useRouter();
   const { setTheme } = useTheme();
 
@@ -56,6 +76,8 @@ export function SearchDialog({ entries, files = [] }: { entries: SearchEntry[]; 
         variant="outline"
         className="h-9 w-9 justify-center px-0 text-muted-foreground sm:w-64 sm:justify-between sm:px-3"
         onClick={() => setOpen(true)}
+        onPointerEnter={load}
+        onFocus={load}
         aria-label="Search the docs"
       >
         <span className="flex items-center gap-2">
