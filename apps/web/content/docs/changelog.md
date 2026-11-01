@@ -4,6 +4,14 @@ Everything that has been added so far, grouped by area.
 
 > `{{pkg}}` is published as an **alpha**, so expect the API to change.
 
+## 0.1.0-alpha.3
+
+Reliability and a little speed.
+
+- Orbs rebuild themselves on a fresh GPU device after it is lost (a driver reset, or the app being backgrounded), instead of staying blank.
+- New `onError` prop. If the orb can't start (no WebGPU adapter, a shader that fails to compile) it is reported there, or logged once with `console.warn`, instead of raising an unhandled promise rejection.
+- Color strings are parsed once, not every frame.
+
 ## 0.1.0-alpha.2
 
 Package metadata and agent files. No change to the orbs or the component.

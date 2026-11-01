@@ -7,7 +7,7 @@ export const site = {
   /** Flip to true once the package is on npm: removes the pre-release notices. */
   published: true,
   /** The version on npm. The first release is an alpha, tagged `next` and `latest`. */
-  version: "0.1.0-alpha.2",
+  version: "0.1.0-alpha.3",
   tagline: "GPU shader orbs for React Native and Expo",
   description:
     "33 WebGPU shader orbs as drop-in React Native components. Live parameters, tap and hold interaction, adaptive quality.",
