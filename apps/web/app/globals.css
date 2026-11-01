@@ -864,33 +864,30 @@
   .side-fold[open] summary::after {
     content: "−";
   }
+  /* A thin rail runs down each group; the current page lights up its stretch of the rail. No filled pills. */
   .side a {
     position: relative;
     display: block;
-    padding: 0.32rem 0.7rem;
-    border-radius: var(--radius-md);
+    padding: 0.3rem 0.9rem;
+    margin-left: 0.7rem;
+    border-left: 1px solid var(--border);
     color: var(--muted-foreground);
-    transition: color 0.15s, background 0.15s;
+    line-height: 1.45;
+    transition: color 0.15s, border-color 0.15s;
   }
   .side a:hover {
     color: var(--foreground);
-    background: var(--accent);
+    border-left-color: color-mix(in oklab, var(--foreground) 45%, var(--border));
     text-decoration: none;
   }
   .side a.on {
-    color: var(--foreground);
-    background: var(--accent);
+    color: var(--brand);
+    border-left-color: var(--brand);
     font-weight: 600;
   }
-  .side a.on::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 22%;
-    bottom: 22%;
-    width: 2px;
-    border-radius: 2px;
-    background: var(--brand);
+  .side-group > p,
+  .side-fold summary {
+    padding-left: 0.7rem;
   }
 
   .doc {
