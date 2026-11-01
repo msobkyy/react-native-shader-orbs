@@ -41,5 +41,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msobkyy/react-native-shader-orbs.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/msobkyy/react-native-shader-orbs#readme",
+  "bugs": {
+    "url": "https://github.com/msobkyy/react-native-shader-orbs/issues"
   }
 }

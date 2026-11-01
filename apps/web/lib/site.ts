@@ -12,7 +12,7 @@ export const site = {
   description:
     "33 WebGPU shader orbs as drop-in React Native components. Live parameters, tap and hold interaction, adaptive quality.",
   /** Repository URL. Leave empty to hide GitHub links. */
-  repo: "",
+  repo: "https://github.com/msobkyy/react-native-shader-orbs",
   /** Who made the React Native port. Shown in the footer, on orb pages, and in the licensing credits. */
   author: { name: "msobkyy", handle: "@msobkyy", url: "https://x.com/msobkyy" },
   /** Public origin, e.g. "https://orbs.example.com". Empty keeps machine-readable files (llms.txt, registry) on relative URLs. */
