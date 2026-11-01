@@ -1409,3 +1409,255 @@
     overflow: visible;
   }
 }
+
+/* ------------------------------------ landing polish: sections added later ------------------------------------ */
+
+@layer components {
+  .landing {
+    position: relative;
+  }
+  /* A soft aurora behind the hero, and a faint grid that fades out. */
+  .landing::before {
+    content: "";
+    position: absolute;
+    inset: -4rem -50vw auto;
+    height: 46rem;
+    background:
+      radial-gradient(40rem 22rem at 78% 8%, color-mix(in oklab, var(--brand) 22%, transparent), transparent 70%),
+      radial-gradient(34rem 20rem at 12% 2%, oklch(0.7 0.14 225 / 12%), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .landing::after {
+    content: "";
+    position: absolute;
+    inset: -4rem -50vw auto;
+    height: 38rem;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 3.5rem 3.5rem;
+    opacity: 0.35;
+    mask-image: radial-gradient(60% 70% at 50% 0%, #000, transparent 75%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--brand);
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+  }
+  .kicker svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+  .proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.4rem 0 0;
+    color: var(--muted-foreground);
+    font-size: 0.82rem;
+  }
+  .proof li::before {
+    content: "";
+    display: inline-block;
+    width: 0.32rem;
+    height: 0.32rem;
+    border-radius: 50%;
+    background: var(--brand);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 1.6rem;
+    justify-content: center;
+    padding: 2.2rem 0 0;
+    color: var(--muted-foreground);
+    font-size: 0.85rem;
+  }
+  .stack span {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+  }
+  .stack b {
+    font-weight: 600;
+    color: var(--foreground);
+    opacity: 0.75;
+    letter-spacing: -0.01em;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+  .bento .feature {
+    grid-column: span var(--span, 2);
+  }
+  .feature-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 0.7rem;
+    margin-bottom: 0.9rem;
+    color: var(--brand);
+    background: var(--brand-soft);
+    border: 1px solid color-mix(in oklab, var(--brand) 25%, var(--border));
+  }
+  .feature-icon svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .agent {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2.4rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-4xl);
+    background:
+      radial-gradient(28rem 16rem at 100% 0%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 70%),
+      var(--card);
+  }
+  .agent h2 {
+    margin-bottom: 0.8rem;
+  }
+  .agent p {
+    color: var(--muted-foreground);
+  }
+  .agent-code ul {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.4rem;
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+  }
+
+  .how {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem;
+  }
+  .how li {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.4rem;
+  }
+  .how-n {
+    display: inline-grid;
+    place-items: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 650;
+    margin-bottom: 0.8rem;
+    color: var(--brand);
+    border: 1px solid color-mix(in oklab, var(--brand) 40%, var(--border));
+  }
+  .how strong {
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .how p {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .reqgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .req {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 1.3rem;
+  }
+  .req svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    color: var(--brand);
+    margin-bottom: 0.7rem;
+  }
+  .req h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.98rem;
+  }
+  .req p {
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .final {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-4xl);
+    background:
+      radial-gradient(30rem 14rem at 50% 0%, color-mix(in oklab, var(--brand) 20%, transparent), transparent 70%),
+      var(--card);
+  }
+  .final h2 {
+    margin-bottom: 0.6rem;
+  }
+  .final p {
+    color: var(--muted-foreground);
+    margin: 0 0 1.4rem;
+  }
+  .final .cta {
+    justify-content: center;
+  }
+  .landing section:last-child {
+    padding-bottom: 4rem;
+  }
+}
+@media (max-width: 900px) {
+  .bento {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bento .feature {
+    grid-column: span 1;
+  }
+  .agent {
+    grid-template-columns: 1fr;
+    padding: 1.6rem;
+  }
+  .how {
+    grid-template-columns: 1fr;
+  }
+  .reqgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .bento,
+  .reqgrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 import { DocPager } from "@/components/doc-pager";
 import { Toc } from "@/components/toc";
 import { renderDoc } from "@/lib/markdown";
-import { allDocs } from "@/lib/site";
+import { pageMeta } from "@/lib/seo";
+import { abs, allDocs, site } from "@/lib/site";
+import { JsonLd } from "@/components/json-ld";
 
 export const dynamicParams = false;
 
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!doc) {
     return {};
   }
-  return { title: doc.title, description: renderDoc(doc.file).description };
+  return pageMeta({ title: doc.title, description: renderDoc(doc.file).description, path: href(doc.slug) });
 }
 
 const href = (slug: string) => (slug ? `/docs/${slug}/` : "/docs/");
@@ -35,9 +37,30 @@ export default async function DocPage({ params }: Props) {
   const prev = allDocs[i - 1];
   const next = allDocs[i + 1];
 
+  const crumbs = [
+    { "@type": "ListItem", position: 1, name: "Home", item: abs("/") },
+    { "@type": "ListItem", position: 2, name: "Docs", item: abs("/docs/") },
+    ...(doc.slug ? [{ "@type": "ListItem", position: 3, name: doc.title, item: abs(href(doc.slug)) }] : []),
+  ];
+
   return (
     <div className={`docs-content ${toc.length < 2 ? "no-toc" : ""}`}>
       <main className="doc">
+        <JsonLd
+          data={[
+            { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs },
+            {
+              "@context": "https://schema.org",
+              "@type": "TechArticle",
+              headline: doc.title,
+              description: renderDoc(doc.file).description,
+              url: abs(href(doc.slug)),
+              inLanguage: "en",
+              author: { "@type": "Person", name: site.author.name, url: site.author.url },
+              isPartOf: { "@type": "WebSite", name: site.name, url: abs("/") },
+            },
+          ]}
+        />
         <article dangerouslySetInnerHTML={{ __html: html }} />
         <DocPager
           prev={prev && { href: href(prev.slug), title: prev.title }}

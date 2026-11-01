@@ -6,16 +6,44 @@ import { SiteFooter, SiteNav } from "@/components/site-chrome";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { site } from "@/lib/site";
+import { keywords, ogImage } from "@/lib/seo";
+import { abs, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: { default: `${site.name}: ${site.tagline}`, template: `%s · ${site.name}` },
   description: site.description,
-  openGraph: { title: `${site.name}: ${site.tagline}`, description: site.description, type: "website" },
+  applicationName: site.name,
+  keywords,
+  authors: [{ name: site.author.name, url: site.author.url }],
+  creator: site.author.name,
+  publisher: site.author.name,
+  category: "technology",
+  alternates: { canonical: abs("/") },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: `${site.name}: ${site.tagline}`,
+    description: site.description,
+    url: abs("/"),
+    locale: "en_US",
+    images: [ogImage()],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: site.author.handle,
+    creator: site.author.handle,
+    title: `${site.name}: ${site.tagline}`,
+    description: site.description,
+    images: [ogImage().url],
+  },
+  icons: { icon: "/icon.svg" },
+  formatDetection: { telephone: false, email: false, address: false },
 };
 
 export const viewport: Viewport = {

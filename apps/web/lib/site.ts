@@ -35,7 +35,10 @@ export interface DocItem {
   file: string;
 }
 
-/** Markdown docs, grouped for the sidebar. The orbs group is built from the orb list. */
+/**
+ * Markdown docs, grouped for the sidebar. The orbs group is built from the orb list and sits between the groups
+ * without `after` and the groups with it.
+ */
 export const docGroups: { group: string; items: DocItem[]; after?: boolean }[] = [
   {
     group: "Getting started",
@@ -51,32 +54,33 @@ export const docGroups: { group: string; items: DocItem[]; after?: boolean }[] =
       { slug: "customizing", title: "Customizing an orb", file: "customizing.md" },
       { slug: "interaction", title: "Touch interaction", file: "interaction.md" },
       { slug: "performance", title: "Performance", file: "performance.md" },
+      { slug: "troubleshooting", title: "Troubleshooting", file: "troubleshooting.md" },
     ],
   },
+  // "Orbs" sits here in the sidebar.
   {
-    group: "Reference",
+    group: "API reference",
+    after: true,
     items: [
       { slug: "shader-orb", title: "ShaderOrb", file: "shader-orb.md" },
       { slug: "types", title: "Types and exports", file: "types.md" },
     ],
   },
-  // "Orbs" sits here in the sidebar.
   {
-    group: "Resources",
+    group: "AI and tooling",
     after: true,
     items: [
-      { slug: "registry", title: "Registry", file: "registry.md" },
-      { slug: "mcp", title: "MCP server", file: "mcp.md" },
-      { slug: "changelog", title: "Changelog", file: "changelog.md" },
+      { slug: "mcp", title: "MCP server and skills", file: "mcp.md" },
+      { slug: "registry", title: "Registry (JSON)", file: "registry.md" },
     ],
   },
   {
-    group: "More",
+    group: "About",
     after: true,
     items: [
       { slug: "how-it-works", title: "How it works", file: "how-it-works.md" },
-      { slug: "troubleshooting", title: "Troubleshooting", file: "troubleshooting.md" },
       { slug: "licensing", title: "Licensing and credits", file: "licensing.md" },
+      { slug: "changelog", title: "Changelog", file: "changelog.md" },
     ],
   },
 ];

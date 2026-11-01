@@ -10,6 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { exportName, getOrb, num, orbs } from "@/lib/orbs";
+import { pageMeta } from "@/lib/seo";
 import { install, peers, site } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -21,7 +22,15 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const orb = getOrb(slug);
-  return orb ? { title: orb.title, description: `${orb.title}: ${orb.note}. Live preview, parameters and usage.` } : {};
+  return orb
+    ? pageMeta({
+        title: `${orb.title} shader orb`,
+        description: `${orb.title}: ${orb.note}. A WebGPU shader orb for React Native and Expo, with a live preview, ${orb.params.length} parameters, colors and copy-paste usage.`,
+        path: `/docs/components/orbs/${orb.slug}/`,
+        image: orb.slug,
+        keywords: [`${orb.title} orb`, `${exportName(orb.slug)}`],
+      })
+    : {};
 }
 
 /** The props most people reach for. The full list is in the ShaderOrb reference. */

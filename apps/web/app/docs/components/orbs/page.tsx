@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { OrbCard } from "@/components/orb-card";
 import { orbMeta } from "@/lib/orbs";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "All orbs",
-  description: `Browse all ${orbMeta.length} shader orbs with live previews.`,
-};
+export const metadata: Metadata = pageMeta({
+  title: "All shader orbs",
+  description: `Browse all ${orbMeta.length} WebGPU shader orbs for React Native and Expo with live previews, from cut-glass spheres to voxel lattices.`,
+  path: "/docs/components/orbs/",
+});
 
 export default function OrbsIndex() {
   return (
