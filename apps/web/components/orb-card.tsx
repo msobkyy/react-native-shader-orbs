@@ -33,9 +33,9 @@ export function OrbCard({ orb }: { orb: OrbMeta }) {
         <OrbView
           slug={orb.slug}
           lazy
-          scale={0.6}
+          scale={1}
           maxFps={30}
-          freezeAfterMs={1600}
+          freezeAfterMs={2200}
           playing={playing}
           className="thumb"
           label={`${orb.title} preview`}

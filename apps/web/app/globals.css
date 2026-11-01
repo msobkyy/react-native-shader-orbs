@@ -1739,7 +1739,7 @@ body {
   }
 
   /* Links in the text: underlined, quiet until hovered. Navigation and buttons keep their own styles. */
-  .doc article a:not(.anchor):not([data-slot]) {
+  .doc article a:not(.anchor):not([data-slot]):not(.orb-card) {
     color: var(--foreground);
     text-decoration: underline;
     text-decoration-color: color-mix(in oklab, var(--foreground) 32%, transparent);
@@ -1747,7 +1747,7 @@ body {
     text-underline-offset: 0.2em;
     transition: text-decoration-color 0.15s, color 0.15s;
   }
-  .doc article a:not(.anchor):not([data-slot]):hover {
+  .doc article a:not(.anchor):not([data-slot]):not(.orb-card):hover {
     color: var(--brand);
     text-decoration-color: var(--brand);
   }
