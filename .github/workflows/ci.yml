@@ -23,9 +23,8 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      # TODO: commit an up-to-date pnpm-lock.yaml (run `pnpm install` locally), then switch this to --frozen-lockfile.
       - name: Install
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
         working-directory: .
 
       - name: Typecheck

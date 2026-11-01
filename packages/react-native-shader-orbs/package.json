@@ -1,6 +1,6 @@
 {
   "name": "react-native-shader-orbs",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "GPU shader orbs for React Native and Expo: 33 WebGPU shaders as drop-in components with live parameters, audio-reactive volumes, touch interaction and adaptive quality.",
   "keywords": [
     "react-native",

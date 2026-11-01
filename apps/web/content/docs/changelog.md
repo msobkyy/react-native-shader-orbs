@@ -4,6 +4,10 @@ Everything that has been added so far, grouped by area.
 
 > `{{pkg}}` is published as an **alpha**, so expect the API to change.
 
+## 0.1.0-alpha.4
+
+The npm page now shows the banner and orb gallery, and the repository gained a contributing guide, security policy and code of conduct. No change to the orbs or the component.
+
 ## 0.1.0-alpha.3
 
 Reliability and a little speed.
