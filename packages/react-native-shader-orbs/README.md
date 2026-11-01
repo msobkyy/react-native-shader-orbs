@@ -1,5 +1,9 @@
 # react-native-shader-orbs
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/msobkyy/react-native-shader-orbs/main/docs/images/banner.png" alt="react-native-shader-orbs: 33 WebGPU shaders for React Native and Expo" width="100%" />
+</p>
+
 **GPU shader orbs for React Native and Expo.** 33 hand-tuned WebGPU shaders as drop-in components, with live parameters,
 touch interaction and adaptive quality.
 
@@ -21,6 +25,10 @@ import { ShaderOrb, orb01 } from "react-native-shader-orbs";
 > **Alpha.** The API may change between releases. **Before you build on it, read [Compatibility](#compatibility) and
 > [License](#license):** it needs a development build (not Expo Go), it is tested on Android only, and the shaders are
 > licensed for **non-commercial use**.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/msobkyy/react-native-shader-orbs/main/docs/images/orbs.png" alt="Twelve of the 33 orbs" width="100%" />
+</p>
 
 ## Highlights
 

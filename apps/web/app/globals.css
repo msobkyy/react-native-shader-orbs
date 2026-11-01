@@ -1900,3 +1900,72 @@ body {
     white-space: nowrap;
   }
 }
+
+/* ---------------------------------- /capture: the page the README images come from ---------------------------------- */
+
+body:has(.capture) .site-nav,
+body:has(.capture) .foot {
+  display: none;
+}
+body:has(.capture) {
+  background: #07070b;
+}
+.capture {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(40rem 20rem at 50% 50%, oklch(0.5 0.17 280 / 22%), transparent 70%),
+    #07070b;
+}
+.capture-banner {
+  width: 1600px;
+  height: 500px;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.capture-side {
+  display: flex;
+  gap: 8px;
+}
+.capture-orb {
+  width: 250px;
+  flex: none;
+}
+.capture-copy {
+  text-align: center;
+}
+.capture-kicker {
+  margin: 0 0 14px;
+  font-size: 18px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: oklch(0.78 0.12 280);
+}
+.capture-copy h1 {
+  margin: 0;
+  font-size: 46px;
+  white-space: nowrap;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.capture-sub {
+  margin: 16px 0 0;
+  font-size: 22px;
+  color: oklch(0.8 0.01 270);
+}
+.capture-grid {
+  width: 1400px;
+  height: 960px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  padding: 10px;
+}
+.capture-grid .capture-orb {
+  width: 310px;
+}
