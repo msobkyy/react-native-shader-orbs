@@ -85,7 +85,7 @@
     "url": "git+https://github.com/msobkyy/react-native-shader-orbs.git",
     "directory": "packages/react-native-shader-orbs"
   },
-  "homepage": "https://github.com/msobkyy/react-native-shader-orbs#readme",
+  "homepage": "https://react-native-shader-orbs.vercel.app",
   "bugs": {
     "url": "https://github.com/msobkyy/react-native-shader-orbs/issues"
   }

@@ -6,7 +6,11 @@ touch interaction and adaptive quality.
 [![npm version](https://img.shields.io/npm/v/react-native-shader-orbs?label=npm&color=7c5cff)](https://www.npmjs.com/package/react-native-shader-orbs)
 [![types](https://img.shields.io/npm/types/react-native-shader-orbs?color=3178c6)](#typescript)
 [![license](https://img.shields.io/badge/license-MIT%20%2B%20non--commercial%20shaders-orange)](#license)
+[![docs](https://img.shields.io/badge/docs-vercel.app-000000)](https://react-native-shader-orbs.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-msobkyy%2Freact--native--shader--orbs-181717?logo=github)](https://github.com/msobkyy/react-native-shader-orbs)
 [![platform](https://img.shields.io/badge/Android-tested-3ddc84)](#compatibility)
+
+**[Documentation and live playground](https://react-native-shader-orbs.vercel.app)** · [Source on GitHub](https://github.com/msobkyy/react-native-shader-orbs) · [llms.txt](https://react-native-shader-orbs.vercel.app/llms.txt)
 
 ```tsx
 import { ShaderOrb, orb01 } from "react-native-shader-orbs";

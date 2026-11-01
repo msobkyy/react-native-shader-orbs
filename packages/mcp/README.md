@@ -4,6 +4,8 @@ MCP server and one-command agent setup for [`react-native-shader-orbs`](https://
 
 Assistants guess parameter names, and a wrong guess gives a black orb. This server lets them look keys up, check values against the real ranges, and write valid `<ShaderOrb />` code.
 
+Docs: https://react-native-shader-orbs.vercel.app/docs/mcp/ · Source: https://github.com/msobkyy/react-native-shader-orbs
+
 ## Set up everything
 
 In your app's folder:

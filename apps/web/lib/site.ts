@@ -16,7 +16,7 @@ export const site = {
   /** Who made the React Native port. Shown in the footer, on orb pages, and in the licensing credits. */
   author: { name: "msobkyy", handle: "@msobkyy", url: "https://x.com/msobkyy" },
   /** Public origin, e.g. "https://orbs.example.com". Empty keeps machine-readable files (llms.txt, registry) on relative URLs. */
-  url: "",
+  url: "https://react-native-shader-orbs.vercel.app",
 };
 
 /** Path prefix the site is hosted under ("" at a domain root). Used for links inside rendered Markdown. */
